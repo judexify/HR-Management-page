@@ -17,12 +17,6 @@ body {
   background-color: #0f172a;
   margin: 0 auto;
 }
-/* when you open on mobile */
-.openOnPc {
-  color: #9ca3af;
-  text-align: center;
-  font-size: 5.6rem;
-}
 
 .login-section {
   display: grid;
