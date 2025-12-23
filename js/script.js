@@ -10,9 +10,23 @@ function isMobile() {
 document.addEventListener("DOMContentLoaded", function () {
   if (isMobile()) {
     console.log("Mobile device detected");
-    body.innerHTML = "";
-    const string = `<p class='openOnPc'>Open this page on a PC.</p>`;
-    body.innerHTML = string;
+
+    const overlay = document.createElement("div");
+    overlay.className = "mobile-overlay";
+    overlay.innerHTML = "<p>Open this page on a PC.</p>";
+    overlay.style.cssText = `
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.4rem;
+      z-index: 9999;
+    `;
+    document.body.appendChild(overlay);
   } else {
     console.log("Desktop device detected");
   }
