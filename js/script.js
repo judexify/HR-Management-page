@@ -1,42 +1,9 @@
 "use strict";
 
-const body = document.body;
-
 const seePasswordBtn = document.querySelector("#checkbox");
 const email = document.querySelector(".email");
 const password = document.querySelector(".password");
-
-const isMobile = () => {
-  const minWidth = 768; // Minimum width for desktop devices
-  return window.innerWidth < minWidth || screen.width < minWidth;
-};
-
-document.addEventListener("DOMContentLoaded", function () {
-  if (isMobile()) {
-    console.log("Mobile device detected");
-
-    const overlay = document.createElement("div");
-    overlay.className = "mobile-overlay";
-    overlay.innerHTML = "<p>Open this page on a PC.</p>";
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
-      background: #111;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2.4rem;
-      z-index: 9999;
-    `;
-    document.body.appendChild(overlay);
-  } else {
-    console.log("Desktop device detected");
-  }
-});
+const submitBtn = document.querySelector(".submitBtn");
 
 // function for see password typed
 
@@ -58,6 +25,7 @@ const handleEmailValidity = () => {
   const emailValidty =
     email.value.length !== 0 && emailRegExp.test(email.value);
   visualForErrorEmail(emailValidty);
+  handleSubmit(emailValidty);
 };
 
 const visualForErrorEmail = (emailValidty) => {
@@ -82,7 +50,21 @@ const handlePassValidity = () => {
     password.classList.remove("error");
     password.classList.add("valid");
   }
+
+  handleSubmit(passValidty);
 };
+
+const handleSubmit = (input) => {
+  if (input) {
+    submitBtn.removeAttribute("disabled");
+  }
+};
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location.href = "./loggedInPage.html";
+});
+
 email.addEventListener("input", () => {
   handleEmailValidity();
 });

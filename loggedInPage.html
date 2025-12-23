@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR Management Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="./img/icons8-management-32.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./js/loggedInPage.js" defer></script>
+    <script src="./js/notForMobile.js" defer></script>
+    <link rel="stylesheet" href="./css/loggedInPage.css" />
+  </head>
+  <body>
+    <header>
+      <div class="welcomeNameandTime">
+        <span class="hello"
+          >Hello
+          <p class="currentLoggedin">Robert 🤝</p></span
+        >
+        <p class="whatTimeOfTheDay">Good Morning</p>
+      </div>
+      <div class="call-to-action">
+        <div class="notification">
+          <i class="fa-regular fa-bell"></i>
+        </div>
+        <div class="currentUserStatus">
+          <div class="user"><i class="fa-solid fa-user"></i></div>
+          <div class="name-and-role">
+            <p class="fullname-of-currentLoggedIn">Robert Smith</p>
+            <p class="role-of-currentLoggenIn">HR Manager</p>
+          </div>
+          <i class="fa-solid fa-circle-chevron-down"></i>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="./allEmployees.html">All Employees</a></li>
+        <li><a href="./allDepartment.html">All Departments</a></li>
+        <li><a href="./attendance.html">Attendance</a></li>
+        <li><a href="./payroll.html">Payroll</a></li>
+        <li><a href="./jobs.html">Jobs</a></li>
+        <li><a href="./candidates.html">Candidates</a></li>
+        <li><a href="./leaves.html">Leaves</a></li>
+        <li><a href="./holidays.html">Holidays</a></li>
+        <li><a href="./settings.html">Settings</a></li>
+      </ul>
+      <div class="theme-selection">
+        <div class="light-mode">
+          <i class="fa-solid fa-sun"></i>
+          <p class="light">Light</p>
+        </div>
+        <div class="dark-mode">
+          <i class="fa-solid fa-moon"></i>
+          <p class="dark">Dark</p>
+        </div>
+      </div>
+    </nav>
+    <div class="dashboard">
+      <div class="dashboard-grid">
+        <div class="stat-grid">
+          <div class="employee-count">Total Employee</div>
+          <div class="applicant-count">Total Applicant</div>
+          <div class="attendance-count">Today Attendance</div>
+          <div class="project-count">Total Projects</div>
+        </div>
+        <div class="my-Schedule">Calender and Schedule</div>
+        <div class="attendance-View">Attendance Overview</div>
+      </div>
+      <div class="attendance-overview"></div>
+    </div>
+  </body>
+</html>
