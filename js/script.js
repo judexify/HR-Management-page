@@ -62,7 +62,7 @@ const handleSubmit = (input) => {
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "./loggedInPage.html";
+  window.location.replace("./loggedInPage.html");
 });
 
 email.addEventListener("input", () => {

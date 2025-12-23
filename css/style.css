@@ -154,38 +154,3 @@ input[type="submit"]:disabled {
   color: #f9fafb;
   font-size: 1.6rem;
 }
-
-/* -bg-page:        #0F172A;
-  --bg-card:        #111827;
-  --bg-elevated:    #1F2933;
-
-   Borders 
-  --border-default: #374151;
-  --border-hover:   #4B5563;
-
-  Text 
-  --text-primary:   #E5E7EB;
-  --text-secondary: #9CA3AF;
-  --text-muted:     #6B7280;
-
- Primary Actions 
-  --btn-primary:    #22C55E;
-  --btn-hover:      #16A34A;
-  --btn-active:     #15803D;
-  --btn-disabled:   #4ADE80;
- Links 
-  --link-default:   #60A5FA;
-  --link-hover:     #3B82F6;
-
-  Status / Feedback 
-  --error-text:     #F87171;
-  --error-bg:       #7F1D1D;
-
-  --success-text:   #86EFAC;
-  --success-bg:     #14532D;
-
-  --warning-text:   #FBBF24;
-  --warning-bg:     #78350F;
-
- Hover 
-  --hover-bg:       #1F2937; */

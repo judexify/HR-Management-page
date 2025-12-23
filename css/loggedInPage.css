@@ -16,4 +16,200 @@ body {
   font-family: "Kumbh Sans", sans-serif;
   background-color: #0f172a;
   margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "nav header"
+    "nav dashboard ";
+  grid-template-columns: 30rem 1fr;
+  min-height: 100vh;
 }
+header {
+  grid-area: header;
+}
+
+.welcomeNameandTime {
+}
+.hello {
+}
+.currentLoggedin {
+}
+.whatTimeOfTheDay {
+}
+.call-to-action {
+}
+.notification {
+}
+.fa-regular {
+}
+.fa-bell {
+}
+.currentUserStatus {
+}
+.user {
+}
+.fa-solid {
+}
+.fa-user {
+}
+.name-and-role {
+}
+.fullname-of-currentLoggedIn {
+}
+.role-of-currentLoggenIn {
+}
+.fa-circle-chevron-down {
+}
+nav {
+  grid-area: nav;
+  background-color: #111827;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 1.2rem 2.4rem;
+  position: sticky;
+  top: 0;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  list-style: none;
+  /* align-items: center; */
+  justify-content: center;
+}
+.logo-and-name {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-left: 1.8rem;
+}
+.logo-and-name img {
+  width: 3.6rem;
+}
+.name {
+  font-size: 1.6rem;
+  color: #e5e7eb;
+  font-weight: 900;
+}
+.links {
+  display: flex;
+  align-items: center;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: all 100ms ease;
+  padding: 1.2rem 2.4rem;
+}
+.fa-solid {
+  font-size: 2.4rem;
+}
+.link:hover {
+  background-color: #0f172a;
+  border-radius: 7px;
+}
+.link:focus {
+  color: #7c3aed;
+  background-color: #e5e7eb;
+  border-radius: 7px;
+  margin-left: 2rem;
+}
+.theme-selection {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  outline: 1px solid #e5e7eb;
+  border-radius: 5px;
+}
+.light-mode {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 2.4rem;
+  cursor: pointer;
+  /* justify-content: center; */
+}
+.fa-sun,
+.fa-moon {
+  color: #e5e7eb;
+}
+.light,
+.dark {
+  color: #e5e7eb;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.light-mode:hover {
+  background-color: #e5e7eb;
+}
+.dark-mode {
+  display: flex;
+  align-items: center;
+  background-color: #7c3aed;
+  padding: 1.2rem 2.4rem;
+  gap: 1.2rem;
+  cursor: pointer;
+}
+
+.dashboard {
+  grid-area: dashboard;
+}
+.dashboard-grid {
+}
+.stat-grid {
+}
+.employee-count {
+}
+.applicant-count {
+}
+.attendance-count {
+}
+.project-count {
+}
+.my-Schedule {
+}
+.attendance-View {
+}
+.attendance-overview {
+}
+
+/* -bg-page:        #0F172A;
+  --bg-card:        #111827;
+  --bg-elevated:    #1F2933;
+
+   Borders 
+  --border-default: #374151;
+  --border-hover:   #4B5563;
+
+  Text 
+  --text-primary:   #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --text-muted:     #6B7280;
+
+ Primary Actions 
+  --btn-primary:    #22C55E;
+  --btn-hover:      #16A34A;
+  --btn-active:     #15803D;
+  --btn-disabled:   #4ADE80;
+ Links 
+  --link-default:   #60A5FA;
+  --link-hover:     #3B82F6;
+
+  Status / Feedback 
+  --error-text:     #F87171;
+  --error-bg:       #7F1D1D;
+
+  --success-text:   #86EFAC;
+  --success-bg:     #14532D;
+
+  --warning-text:   #FBBF24;
+  --warning-bg:     #78350F;
+
+ Hover 
+  --hover-bg:       #1F2937; */
