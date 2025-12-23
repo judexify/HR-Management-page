@@ -14,4 +14,171 @@ img {
 
 body {
   font-family: "Kumbh Sans", sans-serif;
+  background-color: #0f172a;
+  margin: 0 auto;
 }
+
+.login-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.background-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  background-color: #f9fafb;
+  margin: 5.6rem;
+  padding: 8.4rem;
+  border-radius: 10px;
+}
+.background-image img {
+  align-self: flex-end;
+  width: 80%;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5.6rem 0 0;
+  /* height:  */
+  /* gap: 5.8rem; */
+}
+.logo-and-name {
+  display: flex;
+  align-items: center;
+  justify-content: centers;
+  gap: 1rem;
+}
+.logo-and-name img {
+  width: 3.6rem;
+}
+.name {
+  color: #f9fafb;
+  font-size: 2.4rem;
+}
+.welcome-text {
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+.welcome {
+  color: #f9fafb;
+  font-size: 2.4rem;
+}
+.login-here {
+  color: #9ca3af;
+  font-size: 1.6rem;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2srem;
+}
+label {
+  font-size: 1.6rem;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 1.6rem;
+  border-radius: 9px;
+  margin-bottom: 1.2rem;
+  background-color: #0f172a;
+  /* outline: none; */
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  font-size: 1.6rem;
+  color: #7c3aed;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border: 1px solid #7c3aed;
+  outline: none;
+}
+input[type="submit"] {
+  outline: none;
+  background-color: #7c3aed;
+  cursor: pointer;
+  padding: 2rem;
+  border-radius: 9px;
+  color: #e5e7eb;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  /* transition: all 3s ease; */
+}
+input[type="submit"]:hover {
+  background-color: #6d28d9;
+}
+input[type="submit"]:disabled {
+  background-color: #a78bfa;
+  cursor: not-allowed;
+}
+.email-input,
+.password-input {
+  color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* .password-input {
+  color: #f9fafb;
+} */
+.user-input-request {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+.remember,
+.show-pass {
+  display: flex;
+  gap: 1rem;
+}
+.remember-me,
+.show-password {
+  color: #f9fafb;
+  font-size: 1.6rem;
+}
+
+/* -bg-page:        #0F172A;
+  --bg-card:        #111827;
+  --bg-elevated:    #1F2933;
+
+   Borders 
+  --border-default: #374151;
+  --border-hover:   #4B5563;
+
+  Text 
+  --text-primary:   #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --text-muted:     #6B7280;
+
+ Primary Actions 
+  --btn-primary:    #22C55E;
+  --btn-hover:      #16A34A;
+  --btn-active:     #15803D;
+  --btn-disabled:   #4ADE80;
+ Links 
+  --link-default:   #60A5FA;
+  --link-hover:     #3B82F6;
+
+  Status / Feedback 
+  --error-text:     #F87171;
+  --error-bg:       #7F1D1D;
+
+  --success-text:   #86EFAC;
+  --success-bg:     #14532D;
+
+  --warning-text:   #FBBF24;
+  --warning-bg:     #78350F;
+
+ Hover 
+  --hover-bg:       #1F2937; */
