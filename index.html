@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
       rel="stylesheet"
     />
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -42,7 +42,7 @@
               <label for="email">Email Address</label>
               <input
                 type="text"
-                id="email"
+                class="email"
                 placeholder="Email Address"
                 aria-placeholder="Email Address"
               />
@@ -51,7 +51,7 @@
               <label for="password">Password</label>
               <input
                 type="password"
-                id="password"
+                class="password"
                 placeholder="Password"
                 aria-placeholder="Password"
               />
@@ -62,7 +62,7 @@
                 <p class="remember-me">Remember me</p>
               </div>
               <div class="show-pass">
-                <input type="checkbox" />
+                <input type="checkbox" id="checkbox" />
                 <p class="show-password">Show Password</p>
               </div>
             </div>

@@ -101,6 +101,13 @@ input[type="password"]:focus {
   border: 1px solid #7c3aed;
   outline: none;
 }
+.error {
+  border: 3px solid #7f1d1d !important;
+}
+.valid {
+  border: 3px solid #b99af0 !important;
+}
+
 input[type="submit"] {
   outline: none;
   background-color: #7c3aed;
