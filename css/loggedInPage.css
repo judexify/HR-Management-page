@@ -62,20 +62,19 @@ header {
 nav {
   grid-area: nav;
   background-color: #111827;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
   padding: 1.2rem 2.4rem;
   position: sticky;
   top: 0;
+  overflow-y: hidden;
 }
 nav ul {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
   list-style: none;
-  /* align-items: center; */
   justify-content: center;
 }
 .logo-and-name {
