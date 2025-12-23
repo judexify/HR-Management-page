@@ -1,6 +1,8 @@
 "use strict";
 
 const body = document.body;
+const passwordInput = document.querySelector("#password");
+const seePasswordBtn = document.querySelector("#checkbox");
 
 function isMobile() {
   const minWidth = 768; // Minimum width for desktop devices
@@ -16,8 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.innerHTML = "<p>Open this page on a PC.</p>";
     overlay.style.cssText = `
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
       background: #111;
       color: #fff;
       display: flex;
@@ -30,4 +34,16 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.log("Desktop device detected");
   }
+});
+
+// function for see password typed
+
+let isChecked = false;
+const forPasswordInput = () => {
+  passwordInput.type = isChecked ? "text" : "password";
+};
+
+seePasswordBtn.addEventListener("change", () => {
+  isChecked = !isChecked;
+  forPasswordInput();
 });
