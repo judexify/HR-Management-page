@@ -23,8 +23,11 @@
       href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="./js/loggedInPage.js" defer></script>
     <script src="./js/notForMobile.js" defer></script>
+    <script src="./js/attendance.js" defer></script>
     <link rel="stylesheet" href="./css/loggedInPage.css" />
   </head>
   <body>
@@ -54,7 +57,9 @@
       </div>
       <ul>
         <li class="links">
-          <a href="#" class="link"><i class="fa-solid fa-grip"></i>Dashboard</a>
+          <a href="#" class="link linkToDashboard"
+            ><i class="fa-solid fa-grip"></i>Dashboard</a
+          >
         </li>
         <li class="links">
           <a href="#" class="link"
@@ -216,7 +221,11 @@
             <div class="days" id="days"></div>
           </div>
         </div>
-        <div class="attendance-View">CHART</div>
+        <div class="attendance-View">
+          <div style="max-width: 95%; width: 80rem; height: 400px">
+            <canvas id="weeklyChart"></canvas>
+          </div>
+        </div>
       </div>
       <div class="attendance-overview"></div>
     </div>

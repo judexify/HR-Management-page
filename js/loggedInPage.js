@@ -80,7 +80,13 @@ const nextMonthDays = (year, month) => {
   }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", (e) => {
+  const linkToFocus = document.querySelector(".linkToDashboard");
+  if (linkToFocus) {
+    linkToFocus.classList.add("active");
+    // linkToFocus.focus();
+  }
+
   let currentDate = new Date();
 
   prev.addEventListener("click", function () {
@@ -103,3 +109,72 @@ const previousMonth = (currentDate) => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   renderCalendar(currentDate);
 };
+
+// CHARTS
+const ctx = document.getElementById("weeklyChart");
+
+new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    datasets: [
+      {
+        label: "Base",
+        data: [60, 60, 60, 30, 60, 60, 60],
+        backgroundColor: "#3b82f6",
+        borderRadius: {
+          bottomLeft: 10,
+          bottomRight: 10,
+        },
+        stack: "stack1",
+        barThickness: 14,
+      },
+      {
+        label: "Target",
+        data: [0, 20, 30, 0, 20, 25, 30],
+        backgroundColor: "#facc15",
+        stack: "stack1",
+        barThickness: 14,
+      },
+      {
+        label: "Overflow",
+        data: [0, 0, 5, 0, 0, 0, 10],
+        backgroundColor: "#ef4444",
+        borderRadius: {
+          topLeft: 10,
+          topRight: 10,
+        },
+        stack: "stack1",
+        barThickness: 14,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+    },
+    scales: {
+      x: {
+        stacked: true,
+        grid: { display: false },
+        ticks: {
+          color: "#6b7280",
+        },
+      },
+      y: {
+        stacked: true,
+        min: 0,
+        max: 100,
+        ticks: {
+          callback: (value) => `${value}%`,
+          color: "#6b7280",
+        },
+        grid: {
+          color: "rgba(255,255,255,0.08)",
+        },
+      },
+    },
+  },
+});

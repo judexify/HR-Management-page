@@ -6,6 +6,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  scrollbar-color: #7c3aed #0f172a;
 }
 img {
   max-width: 100%;
@@ -163,6 +164,30 @@ nav ul {
   background-color: #7c3aed;
   border-radius: inherit;
 }
+
+.link.active {
+  color: #7c3aed;
+  background-color: #e5e7eb;
+  border-radius: 7px;
+  margin-left: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.link.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.5rem;
+  background-color: #7c3aed;
+  border-radius: inherit;
+}
+.link:focus-visible {
+  outline: 2px solid #7c3aed;
+}
+
 .theme-selection {
   margin-top: auto;
   display: flex;
@@ -348,8 +373,7 @@ nav ul {
   display: flex;
   justify-content: center;
 }
-.calendar {
-}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -365,12 +389,7 @@ nav ul {
 #month-year {
   font-size: 1.6rem;
 }
-.fa-solid {
-}
-.fa-arrow-left {
-}
-.fa-arrow-right {
-}
+
 .weekdays,
 .days {
   display: flex;
@@ -409,11 +428,16 @@ nav ul {
   color: #e5e7eb4c;
 }
 .attendance-View {
-  background-color: #debdb5;
   grid-row-start: 3;
   grid-column-start: 1;
   grid-row-end: 5;
   grid-column-end: 5;
+  border: 1px solid #e5e7eb4c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.4rem;
+  border-radius: 5px;
 }
 .attendance-overview {
 }
