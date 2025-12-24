@@ -30,11 +30,12 @@ header {
   align-items: center;
   justify-content: space-between;
   min-height: 5.6rem;
-  height: 10rem;
-  padding: 1.2rem 2.4rem;
+  height: 7rem;
+  padding: 1.6rem 2.8rem;
   position: sticky;
   top: 0;
   z-index: 10;
+  background-color: #0f172a;
 }
 
 .hello {
@@ -320,18 +321,49 @@ nav ul {
 }
 
 .my-Schedule {
-  background-color: #6badc8;
   grid-row-start: 1;
   grid-column-start: 5;
   grid-row-end: 5;
   grid-column-end: 7;
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  padding: 3.6rem;
 }
 .schedule-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .title {
+  font-size: 1.6rem;
+  color: #e5e7eb;
 }
-.fa-calendar {
+.schedule-header .fa-calendar {
+  color: #7c3aed;
+  font-size: 1.6rem;
+  background-color: #6022cc42;
+  padding: 1.2rem 2.4rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
 }
+.calendar {
+}
+.header {
+}
+.btn {
+}
+.fa-solid {
+}
+.fa-arrow-left {
+}
+.fa-arrow-right {
+}
+.weekdays {
+}
+.days {
+}
+
 .attendance-View {
   background-color: #debdb5;
   grid-row-start: 3;
