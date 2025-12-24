@@ -30,22 +30,19 @@ header {
   align-items: center;
   justify-content: space-between;
   min-height: 5.6rem;
-  height: 15rem;
+  height: 10rem;
   padding: 1.2rem 2.4rem;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-.welcomeNameandTime {
-}
 .hello {
   color: #e5e7eb;
   font-weight: 600;
   font-size: 3.6rem;
 }
-.currentLoggedin {
-}
+
 .whatTimeOfTheDay {
   color: #9ca3af;
   font-size: 1.8rem;
@@ -74,16 +71,12 @@ header {
   align-items: center;
   gap: 2.4rem;
 }
-.user {
-}
-.fa-solid {
-}
+
 .fa-user {
   color: #e5e7eb;
   font-size: 1.6rem !important;
 }
-.name-and-role {
-}
+
 .fullname-of-currentLoggedIn {
   color: #e5e7eb;
   font-size: 1.6rem;
@@ -156,6 +149,18 @@ nav ul {
   background-color: #e5e7eb;
   border-radius: 7px;
   margin-left: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.link:focus::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.5rem;
+  background-color: #7c3aed;
+  border-radius: inherit;
 }
 .theme-selection {
   margin-top: auto;
@@ -199,21 +204,140 @@ nav ul {
   overflow-y: auto;
   padding: 2.4rem;
 }
+
 .dashboard-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1.2rem;
+  height: 100%;
 }
+
 .stat-grid {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: 3;
+  grid-column-end: 5;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  height: 100%;
 }
 .employee-count {
+  /* background-color: #855598; */
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  grid-row: 1;
+  grid-column: 1;
 }
+.justCover {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  border-bottom-style: double;
+  border-bottom-color: #e5e7eb4c;
+}
+.stat-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.stat-icons .fa-users,
+.stat-icons .fa-briefcase,
+.stat-icons .fa-calendar {
+  color: #7c3aed;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.6rem 2.4rem;
+  border-radius: 5px;
+  text-align: center;
+}
+.te,
+.ta,
+.tatt,
+.tp {
+  font-size: 1.6rem;
+  color: #e5e7eb;
+}
+.countAndPercent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.countOfEmployee,
+.countOfApplicant,
+.countOfAttendance,
+.countOfProjects {
+  color: #e5e7eb;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.percentChange {
+  color: #e5e7eb;
+  font-size: 1.6rem;
+  background-color: #358553;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+}
+.fa-sort-up {
+  color: #86efac;
+  display: flex;
+  align-items: center;
+}
+.update-time {
+  padding: 1.2rem;
+}
+.time-update {
+  color: #e5e7eb;
+  font-size: 1.2rem;
+}
+
 .applicant-count {
+  grid-row: 1;
+  grid-column: 2;
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
 }
+
 .attendance-count {
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  grid-row: 2;
+  grid-column: 1;
 }
+
 .project-count {
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  grid-row: 2;
+  grid-column: 2;
 }
+
 .my-Schedule {
+  background-color: #6badc8;
+  grid-row-start: 1;
+  grid-column-start: 5;
+  grid-row-end: 5;
+  grid-column-end: 7;
+}
+.schedule-header {
+}
+.title {
+}
+.fa-calendar {
 }
 .attendance-View {
+  background-color: #debdb5;
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-row-end: 5;
+  grid-column-end: 5;
 }
 .attendance-overview {
 }
