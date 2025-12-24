@@ -333,6 +333,7 @@ nav ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2.4rem;
 }
 .title {
   font-size: 1.6rem;
@@ -350,8 +351,19 @@ nav ul {
 .calendar {
 }
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #9ca3af;
 }
 .btn {
+  cursor: pointer;
+  background-color: #e5e7eb;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+#month-year {
+  font-size: 1.6rem;
 }
 .fa-solid {
 }
@@ -359,11 +371,43 @@ nav ul {
 }
 .fa-arrow-right {
 }
-.weekdays {
-}
+.weekdays,
 .days {
+  display: flex;
+  flex-wrap: wrap;
 }
 
+.days {
+  height: 24rem;
+}
+.weekdays div,
+.days div {
+  width: 14.28%;
+  text-align: center;
+  padding: 1rem 0;
+  color: #9ca3af;
+}
+.days div {
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+.days div:hover {
+  background-color: #7c3aed14;
+}
+.days div:focus {
+  background-color: #7c3aed3f !important;
+}
+.days .today {
+  background-color: #7c3aed;
+}
+.days .fade {
+  color: #e5e7eb4c;
+}
 .attendance-View {
   background-color: #debdb5;
   grid-row-start: 3;
