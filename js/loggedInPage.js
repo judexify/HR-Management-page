@@ -4,7 +4,6 @@ const daysContainer = document.querySelector("#days");
 const monthYear = document.querySelector("#month-year");
 const prev = document.querySelector("#prev");
 const next = document.querySelector("#next");
-console.log(next);
 
 const renderCalendar = (date) => {
   const months = [
@@ -84,7 +83,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const linkToFocus = document.querySelector(".linkToDashboard");
   if (linkToFocus) {
     linkToFocus.classList.add("active");
-    // linkToFocus.focus();
+    //
   }
 
   let currentDate = new Date();
