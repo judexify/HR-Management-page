@@ -165,7 +165,7 @@ nav ul {
   border-radius: inherit;
 }
 
-.link.active {
+/* .link.active {
   color: #7c3aed;
   background-color: #e5e7eb;
   border-radius: 7px;
@@ -183,7 +183,7 @@ nav ul {
   width: 0.5rem;
   background-color: #7c3aed;
   border-radius: inherit;
-}
+} */
 .link:focus-visible {
   outline: 2px solid #7c3aed;
 }
@@ -521,6 +521,136 @@ tbody tr:hover {
   background-color: #7c3aed17;
   cursor: pointer;
 }
+
+/* full attendance */
+.attendance-page {
+  width: 100%;
+}
+
+.attendance-search-wrapper {
+  margin-bottom: 2.4rem;
+}
+
+#search-attendance-bar {
+  width: 20%;
+  padding: 1.2rem 2rem;
+  font-size: 1.6rem;
+  background-color: #111827;
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+#search-attendance-bar:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+#search-attendance-bar::placeholder {
+  color: #6b7280;
+}
+
+.attendance-table-container {
+  border: 1px solid #e5e7eb4c;
+  padding: 2.4rem;
+  border-radius: 5px;
+  margin-bottom: 2.4rem;
+}
+
+.attendance-table {
+  color: #e5e7eb;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.attendance-table thead th {
+  text-align: left;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  color: #9ca3af;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb4c;
+}
+
+.attendance-table tbody td {
+  padding: 1.6rem 1.2rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #e5e7eb4c;
+  vertical-align: middle;
+}
+
+.attendance-table tbody td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.attendance-table tbody td:first-child img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #374151;
+}
+
+.attendance-table tbody td:first-child p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.attendance-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.attendance-table tbody tr:hover {
+  background-color: #7c3aed17;
+  cursor: pointer;
+}
+
+.attendance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.attendance-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: flex-end;
+  padding: 1.2rem 0;
+}
+
+.attendance-controls label {
+  color: #9ca3af;
+  font-size: 1.4rem;
+}
+
+.attendance-controls select {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.4rem;
+  background-color: #111827;
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.attendance-controls select:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+.attendance-controls select:hover {
+  border-color: #7c3aed;
+}
+
+/* Status indicators */
 
 /* -bg-page:        #0F172A;
   --bg-card:        #111827;

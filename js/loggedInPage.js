@@ -80,12 +80,6 @@ const nextMonthDays = (year, month) => {
 };
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  const linkToFocus = document.querySelector(".linkToDashboard");
-  if (linkToFocus) {
-    linkToFocus.classList.add("active");
-    //
-  }
-
   let currentDate = new Date();
 
   prev.addEventListener("click", function () {

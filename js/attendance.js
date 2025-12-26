@@ -6,12 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
   initApp();
 });
 
+export const getEmployees = () => {
+  return fetch("./json/employee.json").then((response) => response.json());
+};
+
 const initApp = () => {
-  fetch("./json/employee.json")
-    .then((response) => response.json())
-    .then((employees) => {
-      renderTableUI(employees);
-    });
+  getEmployees().then((employees) => {
+    renderTableUI(employees);
+  });
 };
 
 const renderTableUI = (organization) => {
@@ -27,21 +29,21 @@ const renderTableUI = (organization) => {
     </tr>
     `;
 
-    const state = {
-      successtext: "#86EFAC",
-      successBg: "#14532D",
-      warningText: "#FBBF24",
-      warningBg: "#78350F",
-      onDOM: () => {
-        return document.querySelector(".truth");
-      },
-    };
-
-    uiForLateonTime(workers, string, state);
+    uiForLateonTime(workers, string);
   }
 };
 
-const uiForLateonTime = (workers, string, state) => {
+export const uiForLateonTime = (workers, string) => {
+  const state = {
+    successtext: "#86EFAC",
+    successBg: "#14532D",
+    warningText: "#FBBF24",
+    warningBg: "#78350F",
+    onDOM: () => {
+      return document.querySelector(".truth");
+    },
+  };
+
   tableContent.insertAdjacentHTML("afterbegin", string);
   const truthCell = document.querySelector("tr .truth");
 

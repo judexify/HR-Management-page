@@ -25,9 +25,10 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="./js/loggedInPage.js" defer></script>
-    <script src="./js/notForMobile.js" defer></script>
-    <script src="./js/attendance.js" defer></script>
+    <script type="module" src="./js/loggedInPage.js"></script>
+    <script type="module" src="./js/notForMobile.js"></script>
+    <script type="module" src="./js/attendance.js"></script>
+    <script type="module" src="./js/nav.js"></script>
     <link rel="stylesheet" href="./css/loggedInPage.css" />
   </head>
   <body>
@@ -57,50 +58,54 @@
       </div>
       <ul>
         <li class="links">
-          <a href="#" class="link linkToDashboard"
+          <a href="#" class="link" data-view="dashboard"
             ><i class="fa-solid fa-grip"></i>Dashboard</a
           >
         </li>
         <li class="links">
-          <a href="#" class="link"
+          <a href="#" class="link" data-view="allEmployee"
             ><i class="fa-solid fa-users"></i>All Employees</a
           >
         </li>
         <li class="links">
-          <a href="#" class="link"
+          <a href="#" class="link" data-view="allDepartment"
             ><i class="fa-solid fa-layer-group"></i>All Departments</a
           >
         </li>
         <li class="links">
-          <a href="#" class="link"
+          <a href="#attendance" class="link" data-view="attendance"
             ><i class="fa-solid fa-calendar"></i>Attendance</a
           >
         </li>
         <li class="links">
-          <a href="#" class="link"
+          <a href="#" class="link" data-view="payroll"
             ><i class="fa-solid fa-dollar-sign"></i>Payroll</a
           >
         </li>
         <li class="links">
-          <a href="#" class="link"><i class="fa-solid fa-briefcase"></i>Jobs</a>
+          <a href="#" class="link" data-view="jobs"
+            ><i class="fa-solid fa-briefcase"></i>Jobs</a
+          >
         </li>
         <li class="links">
-          <a href="#" class="link"
+          <a href="#" class="link" data-view="candidates"
             ><i class="fa-solid fa-users"></i>Candidates</a
           >
         </li>
         <li class="links">
-          <a href="#" class="link">
+          <a href="#" class="link" data-view="leaves">
             <i class="fa-solid fa-clipboard-list"></i>Leaves</a
           >
         </li>
         <li class="links">
-          <a href="#" class="link"
+          <a href="#" class="link" data-view="holidays"
             ><i class="fa-solid fa-calendar"></i>Holidays</a
           >
         </li>
         <li class="links">
-          <a href="#" class="link"><i class="fa-solid fa-gear"></i>Settings</a>
+          <a href="#" class="link" data-view="settings"
+            ><i class="fa-solid fa-gear"></i>Settings</a
+          >
         </li>
       </ul>
       <div class="theme-selection">
@@ -247,6 +252,14 @@
             </tbody>
           </table>
         </div>
+      </div>
+      <div class="showing-at-a-time">
+        <label for="numbers">showing:</label>
+        <select id="numbers" name="number">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="15">15</option>
+        </select>
       </div>
     </div>
   </body>
