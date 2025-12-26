@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   });
 
   renderCalendar(currentDate);
+  renderDateToStatGrid();
 });
 
 const nextMonth = (currentDate) => {
@@ -177,3 +178,33 @@ new Chart(ctx, {
     },
   },
 });
+
+const renderDateToStatGrid = () => {
+  const updatedWhen = document.querySelectorAll(".updated-time");
+  for (let dates of updatedWhen) {
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    const monthName = months[month];
+
+    let currentDate = `${monthName} ${day},${year}`;
+    dates.textContent = currentDate;
+  }
+};

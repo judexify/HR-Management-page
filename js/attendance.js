@@ -44,23 +44,22 @@ const renderTableUI = (organization) => {
 const uiForLateonTime = (workers, string, state) => {
   tableContent.insertAdjacentHTML("afterbegin", string);
   const truthCell = document.querySelector("tr .truth");
-  if (workers.attendance.truth === "On Time") {
-    truthCell.innerHTML = `<span style="
-      color: ${state.successtext};
-      background-color: ${state.successBg};
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
-      display: inline-block;
-    ">${workers.attendance.truth}</span>`;
-  } else if (workers.attendance.truth === "Late") {
-    truthCell.innerHTML = `<span style="
-      color: ${state.warningText};
-      background-color: ${state.warningBg};
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
-      display: inline-block;
-    ">${workers.attendance.truth}</span>`;
-  }
 
-  // don
+  const statusStyles = {
+    "On Time": { color: state.successtext, bg: state.successBg },
+    Late: { color: state.warningText, bg: state.warningBg },
+  };
+
+  const status = workers.attendance.truth;
+  const style = statusStyles[status];
+
+  if (style) {
+    truthCell.innerHTML = `<span style="
+      color: ${style.color};
+      background-color: ${style.bg};
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      display: inline-block;
+    ">${status}</span>`;
+  }
 };
