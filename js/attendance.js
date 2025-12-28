@@ -32,8 +32,7 @@ const renderTableUI = (organization) => {
     uiForLateonTime(workers, string);
   }
 };
-
-export const uiForLateonTime = (workers, string) => {
+const uiForLateonTime = (workers, string) => {
   const state = {
     successtext: "#86EFAC",
     successBg: "#14532D",

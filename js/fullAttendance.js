@@ -1,11 +1,11 @@
 "use strict";
 
 import { getEmployees } from "./attendance.js";
+import { renderPayroll } from "./payroll.js";
 
 // DOM Elements
 const nav = document.querySelector("nav");
 const dashBoard = document.querySelector(".dashboard");
-const navLinks = document.querySelectorAll(".link");
 
 // State
 let activeView = null;
@@ -156,10 +156,19 @@ const filterEmployees = (searchTerm) => {
     `;
   }
 };
+function convertCapitalLetter(words) {
+  let theWord = words.split(" ").map((word) => {
+    return word[0].toUpperCase() + word.slice(1);
+  });
+  return theWord.join(" ");
+}
 
 // Handle navigation link clicks
 const handleNavClick = (link) => {
   const view = link.dataset.view;
+  const capFirstLetter = convertCapitalLetter(view);
+  const helloWord = document.querySelector(".hello");
+  const whatTimeOfTheDay = document.querySelector(".whatTimeOfTheDay");
 
   if (activeView === view) return;
 
@@ -167,7 +176,15 @@ const handleNavClick = (link) => {
 
   // Render appropriate view
   if (view === "attendance") {
+    helloWord.textContent = "Hello Jude 🤝";
+    whatTimeOfTheDay.textContent = "Good Morning";
     renderAttendanceView();
+  }
+  if (view === "payroll") {
+    helloWord.textContent = capFirstLetter;
+    whatTimeOfTheDay.textContent = "All Employee Records";
+
+    renderPayroll();
   }
 };
 
