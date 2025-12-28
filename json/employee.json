@@ -134,7 +134,7 @@
     "salary": {
       "amount": "$4,583",
       "perYear": "$55,000",
-      "transaction": "Completed",
+      "transaction": "Pending",
       "deduction": "$500"
     },
     "notifications": [
@@ -184,7 +184,7 @@
     "salary": {
       "amount": "$6,250",
       "perYear": "$75,000",
-      "transaction": "Completed",
+      "transaction": "Pending",
       "deduction": "-"
     },
     "notifications": [
@@ -295,7 +295,7 @@
     "salary": {
       "amount": "$7,083",
       "perYear": "$85,000",
-      "transaction": "Completed",
+      "transaction": "Pending",
       "deduction": "-"
     },
     "notifications": [
@@ -455,7 +455,7 @@
     "salary": {
       "amount": "$4,583",
       "perYear": "$55,000",
-      "transaction": "Completed",
+      "transaction": "Pending",
       "deduction": "$200"
     },
     "notifications": [

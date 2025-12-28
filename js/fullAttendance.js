@@ -20,20 +20,36 @@ const renderEmployeeRows = (count) => {
   const slicedEmployees = employeesData.slice(0, count);
 
   const employeeRowsHTML = slicedEmployees
-    .map(
-      (emp) => `
-      <tr>
-        <td>
-          <img src="${emp.imagePath}" alt="${emp.name}">
-          <p>${emp.name}</p>
-        </td>
-        <td>${emp.title}</td>
-        <td>${emp.employment_type}</td>
-        <td>${emp.attendance.check_in}</td>
-        <td class="truth">${emp.attendance.truth}</td>
-      </tr>
-    `
-    )
+    .map((emp) => {
+      const statusStyles = {
+        "On Time": { color: "#86EFAC", bg: "#14532D" },
+        Late: { color: "#FBBF24", bg: "#78350F" },
+      };
+
+      const status = emp.attendance.truth;
+      const style = statusStyles[status];
+
+      return `
+        <tr>
+          <td>
+            <img src="${emp.imagePath}" alt="${emp.name}">
+            <p>${emp.name}</p>
+          </td>
+          <td>${emp.title}</td>
+          <td>${emp.employment_type}</td>
+          <td>${emp.attendance.check_in}</td>
+          <td class="truth">
+            <span style="
+              color: ${style.color};
+              background-color: ${style.bg};
+              padding: 0.6rem 1.2rem;
+              border-radius: 5px;
+              display: inline-block;
+            ">${status}</span>
+          </td>
+        </tr>
+      `;
+    })
     .join("");
 
   const tbody = document.querySelector("#data-output");
@@ -63,6 +79,7 @@ const renderAttendanceView = () => {
         <option value="5">5</option>
         <option value="10" selected>10</option>
         <option value="15">15</option>
+        <option value="20">20</option>
       </select>
     </div>
   `;
@@ -175,6 +192,9 @@ const handleNavClick = (link) => {
   activeView = view;
 
   // Render appropriate view
+  if (view === "dashboard") {
+    location.assign("./loggedInPage.html");
+  }
   if (view === "attendance") {
     helloWord.textContent = "Hello Jude 🤝";
     whatTimeOfTheDay.textContent = "Good Morning";

@@ -12,12 +12,19 @@ getEmployees().then((employees) => {
 });
 
 const renderEmployeeRows = (count) => {
-  console.log(employeesData);
   const slicedEmployees = employeesData.slice(0, count);
 
   const employeeRowsHTML = slicedEmployees
-    .map(
-      (emp) => `
+    .map((emp) => {
+      const statusStyles = {
+        Completed: { color: "#86EFAC", bg: "#14532D" },
+        Pending: { color: "#FBBF24", bg: "#78350F" },
+      };
+
+      const status = emp.salary.transaction;
+      const style = statusStyles[status];
+
+      return `
       <tr>
         <td>
           <img src="${emp.imagePath}" alt="${emp.name}">
@@ -26,10 +33,16 @@ const renderEmployeeRows = (count) => {
         <td>${emp.salary.perYear}</td>
         <td>${emp.salary.amount}</td>
         <td>${emp.salary.deduction}</td>
-        <td class="truth">${emp.salary.transaction}</td>
+        <td class="truth"><span style="
+              color: ${style.color};
+              background-color: ${style.bg};
+              padding: 0.6rem 1.2rem;
+              border-radius: 5px;
+              display: inline-block;
+            ">${status}</span></td>
       </tr>
-    `
-    )
+    `;
+    })
     .join("");
 
   const tbody = document.querySelector("#data-output");
