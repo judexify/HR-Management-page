@@ -1,4 +1,9 @@
 "use strict";
+import "./notForMobile.js";
+import "./attendance.js";
+import "./fullAttendance.js";
+import "./payroll.js";
+import "./jobs.js";
 
 const daysContainer = document.querySelector("#days");
 const monthYear = document.querySelector("#month-year");

@@ -2,6 +2,7 @@
 
 import { getEmployees } from "./attendance.js";
 import { renderPayroll } from "./payroll.js";
+import { renderJobNav } from "./jobs.js";
 
 // DOM Elements
 const nav = document.querySelector("nav");
@@ -196,15 +197,19 @@ const handleNavClick = (link) => {
     location.assign("./loggedInPage.html");
   }
   if (view === "attendance") {
-    helloWord.textContent = "Hello Jude 🤝";
-    whatTimeOfTheDay.textContent = "Good Morning";
+    helloWord.textContent = capFirstLetter;
+    whatTimeOfTheDay.textContent = "All Employee  Attendance";
     renderAttendanceView();
   }
   if (view === "payroll") {
     helloWord.textContent = capFirstLetter;
     whatTimeOfTheDay.textContent = "All Employee Records";
-
     renderPayroll();
+  }
+  if (view === "jobs") {
+    helloWord.textContent = capFirstLetter;
+    whatTimeOfTheDay.textContent = "Show All Jobs";
+    renderJobNav();
   }
 };
 
