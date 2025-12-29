@@ -44,7 +44,8 @@ const uiForLateonTime = (workers, string) => {
   };
 
   tableContent.insertAdjacentHTML("afterbegin", string);
-  const truthCell = document.querySelector("tr .truth");
+  const insertedRow = tableContent.firstElementChild;
+  const truthCell = insertedRow.querySelector(".truth");
 
   const statusStyles = {
     "On Time": { color: state.successtext, bg: state.successBg },

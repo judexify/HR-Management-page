@@ -1,23 +1,29 @@
 "use strict";
 
 import { getEmployees } from "./attendance.js";
+import { getJobs, renderJobNav, renderJobHead } from "./jobs.js";
 import { renderPayroll } from "./payroll.js";
-import { renderJobNav } from "./jobs.js";
+// import { jobs } from "./jobs.js";
 
 // DOM Elements
 const nav = document.querySelector("nav");
 const dashBoard = document.querySelector(".dashboard");
+const viewMore = document.querySelector(".view-more-attendance");
 
 // State
 let activeView = null;
 let employeesData = null;
 let currentDisplayCount = 10;
 
+// Fetch employees
 getEmployees().then((employees) => {
   employeesData = employees;
 });
 
-const renderEmployeeRows = (count) => {
+// Render employee rows
+const renderEmployeeRows = (count, container) => {
+  if (!employeesData) return;
+
   const slicedEmployees = employeesData.slice(0, count);
 
   const employeeRowsHTML = slicedEmployees
@@ -26,9 +32,8 @@ const renderEmployeeRows = (count) => {
         "On Time": { color: "#86EFAC", bg: "#14532D" },
         Late: { color: "#FBBF24", bg: "#78350F" },
       };
-
       const status = emp.attendance.truth;
-      const style = statusStyles[status];
+      const style = statusStyles[status] || { color: "#fff", bg: "#000" };
 
       return `
         <tr>
@@ -53,13 +58,16 @@ const renderEmployeeRows = (count) => {
     })
     .join("");
 
-  const tbody = document.querySelector("#data-output");
-  if (tbody) {
-    tbody.innerHTML = employeeRowsHTML;
-  }
+  const tbody = container.querySelector("#data-output");
+  if (tbody) tbody.innerHTML = employeeRowsHTML;
 };
 
-const renderAttendanceView = () => {
+// Render attendance view
+const renderAttendanceView = (h, c, w) => {
+  if (!employeesData) return; // guard if data not loaded
+
+  h.textContent = c;
+  w.textContent = "All Employee Attendance";
   dashBoard.innerHTML = "";
 
   const attendancePageContainer = document.createElement("div");
@@ -85,7 +93,7 @@ const renderAttendanceView = () => {
     </div>
   `;
 
-  // Table structure HTML
+  // Table HTML
   const tableStructureHTML = `
     <div class="attendance-table-container">
       <table class="attendance-table">
@@ -98,41 +106,42 @@ const renderAttendanceView = () => {
             <th>Status</th>
           </tr>
         </thead>
-        <tbody id="data-output">
-          <!-- Populated by JavaScript -->
-        </tbody>
+        <tbody id="data-output"></tbody>
       </table>
     </div>
   `;
 
-  // Build the attendance page
   attendancePageContainer.innerHTML =
     searchBarHTML + tableStructureHTML + rowSelectorHTML;
   dashBoard.appendChild(attendancePageContainer);
 
-  renderEmployeeRows(currentDisplayCount);
+  renderEmployeeRows(currentDisplayCount, attendancePageContainer);
 
-  // event listener for select dropdown
-  const selectElement = document.querySelector("#numbers");
+  // Rows per page change
+  const selectElement = attendancePageContainer.querySelector("#numbers");
   if (selectElement) {
     selectElement.addEventListener("change", (e) => {
-      const selectedCount = parseInt(e.target.value);
-      currentDisplayCount = selectedCount;
-      renderEmployeeRows(selectedCount);
+      currentDisplayCount = parseInt(e.target.value);
+      renderEmployeeRows(currentDisplayCount, attendancePageContainer);
     });
   }
 
-  // Add event listener for search bar
-  const searchBar = document.querySelector("#search-attendance-bar");
+  // Search bar
+  const searchBar = attendancePageContainer.querySelector(
+    "#search-attendance-bar"
+  );
   if (searchBar) {
     searchBar.addEventListener("input", (e) => {
       const searchTerm = e.target.value.toLowerCase();
-      filterEmployees(searchTerm);
+      filterEmployees(searchTerm, attendancePageContainer);
     });
   }
 };
 
-const filterEmployees = (searchTerm) => {
+// Filter employees
+const filterEmployees = (searchTerm, container) => {
+  if (!employeesData) return;
+
   const filteredEmployees = employeesData.filter((emp) => {
     return (
       emp.name.toLowerCase().includes(searchTerm) ||
@@ -161,62 +170,60 @@ const filterEmployees = (searchTerm) => {
     )
     .join("");
 
-  const tbody = document.querySelector("#data-output");
+  const tbody = container.querySelector("#data-output");
   if (tbody) {
     tbody.innerHTML =
       employeeRowsHTML ||
-      `
-      <tr>
+      `<tr>
         <td colspan="5" style="text-align: center; padding: 2rem; color: #9ca3af;">
           No employees found matching "${searchTerm}"
         </td>
-      </tr>
-    `;
+      </tr>`;
   }
 };
+
+// Capitalize words
 function convertCapitalLetter(words) {
-  let theWord = words.split(" ").map((word) => {
-    return word[0].toUpperCase() + word.slice(1);
-  });
-  return theWord.join(" ");
+  return words
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
-// Handle navigation link clicks
+// DOM references
+const helloWord = document.querySelector(".hello");
+const whatTimeOfTheDay = document.querySelector(".whatTimeOfTheDay");
+
+// Handle nav clicks
 const handleNavClick = (link) => {
   const view = link.dataset.view;
   const capFirstLetter = convertCapitalLetter(view);
-  const helloWord = document.querySelector(".hello");
-  const whatTimeOfTheDay = document.querySelector(".whatTimeOfTheDay");
 
   if (activeView === view) return;
-
   activeView = view;
 
-  // Render appropriate view
-  if (view === "dashboard") {
-    location.assign("./loggedInPage.html");
-  }
-  if (view === "attendance") {
-    helloWord.textContent = capFirstLetter;
-    whatTimeOfTheDay.textContent = "All Employee  Attendance";
-    renderAttendanceView();
-  }
-  if (view === "payroll") {
-    helloWord.textContent = capFirstLetter;
-    whatTimeOfTheDay.textContent = "All Employee Records";
-    renderPayroll();
-  }
+  if (view === "dashboard") location.assign("./loggedInPage.html");
+  if (view === "attendance")
+    renderAttendanceView(helloWord, capFirstLetter, whatTimeOfTheDay);
+  if (view === "payroll")
+    renderPayroll(helloWord, capFirstLetter, whatTimeOfTheDay);
   if (view === "jobs") {
-    helloWord.textContent = capFirstLetter;
-    whatTimeOfTheDay.textContent = "Show All Jobs";
-    renderJobNav();
+    getJobs().then((jobsData) => {
+      renderJobHead(helloWord, capFirstLetter, whatTimeOfTheDay);
+      renderJobNav(jobsData);
+    });
   }
 };
 
-// Event Listeners
+// Event listeners
 nav.addEventListener("click", (e) => {
   const link = e.target.closest(".link");
   if (!link) return;
-
+  e.preventDefault();
   handleNavClick(link);
+});
+
+viewMore.addEventListener("click", () => {
+  window.location.hash = "attendance";
+  renderAttendanceView(helloWord, "Attendance", whatTimeOfTheDay);
 });

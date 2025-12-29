@@ -51,8 +51,11 @@ const renderEmployeeRows = (count) => {
   }
 };
 
-export const renderPayroll = () => {
+export const renderPayroll = (h, c, w) => {
   dashBoard.innerHTML = "";
+
+  h.textContent = c;
+  w.textContent = "All Employee Records";
 
   const payrollPageContainer = document.createElement("div");
   payrollPageContainer.classList.add("payroll-page");
