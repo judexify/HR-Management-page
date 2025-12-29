@@ -1,0 +1,638 @@
+/* ========================================
+   MEDIA QUERIES FOR HR MANAGEMENT SYSTEM
+   ======================================== */
+
+/* ===== TABLET & SMALLER LAPTOPS (1024px and below) ===== */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 56.25%; /* 9px */
+  }
+
+  body {
+    grid-template-columns: 25rem 1fr;
+  }
+
+  nav {
+    width: 25rem;
+    padding: 1rem 1.6rem;
+  }
+
+  .logo-and-name {
+    margin-left: 1rem;
+  }
+
+  .link {
+    font-size: 1.4rem;
+    padding: 1rem 1.8rem;
+  }
+
+  header {
+    padding: 1.2rem 2rem;
+  }
+
+  .hello {
+    font-size: 3rem;
+  }
+
+  .whatTimeOfTheDay {
+    font-size: 1.6rem;
+  }
+
+  .call-to-action {
+    gap: 3.2rem;
+  }
+
+  .currentUserStatus {
+    gap: 1.6rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .dashboard {
+    padding: 1.6rem;
+  }
+
+  .dashboard-grid {
+    gap: 1rem;
+  }
+
+  .stat-grid {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .my-Schedule {
+    padding: 2.4rem;
+  }
+
+  .attendance-View {
+    padding: 1.6rem;
+  }
+
+  #search-attendance-bar,
+  #payroll-attendance-bar,
+  #search-job-bar {
+    width: 30%;
+  }
+}
+
+/* ===== TABLET PORTRAIT (768px - 900px) ===== */
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 50%; /* 8px */
+  }
+
+  body {
+    grid-template-columns: 22rem 1fr;
+  }
+
+  nav {
+    width: 22rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .link {
+    font-size: 1.3rem;
+    padding: 0.8rem 1.4rem;
+    gap: 1rem;
+  }
+
+  .fa-solid {
+    font-size: 2rem;
+  }
+
+  header {
+    padding: 1rem 1.6rem;
+  }
+
+  .hello {
+    font-size: 2.6rem;
+  }
+
+  .call-to-action {
+    gap: 2.4rem;
+  }
+
+  .notification {
+    padding: 1.4rem;
+  }
+
+  .dashboard-grid {
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stat-grid {
+    grid-row: 1 / 2;
+    grid-column: 1 / 5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .my-Schedule {
+    grid-row: 2 / 3;
+    grid-column: 1 / 5;
+    padding: 2rem;
+  }
+
+  .attendance-View {
+    grid-row: 3 / 4;
+    grid-column: 1 / 5;
+    padding: 1.6rem;
+  }
+
+  .attendance-overview {
+    grid-row: 4 / 5;
+    grid-column: 1 / 5;
+    padding: 1.6rem;
+  }
+
+  #search-attendance-bar,
+  #payroll-attendance-bar,
+  #search-job-bar {
+    width: 40%;
+  }
+
+  .jobs-status-container {
+    flex-direction: column;
+  }
+
+  .active-jobs-box,
+  .inactive-jobs-box,
+  .completed-jobs-box {
+    min-width: 100%;
+  }
+}
+
+/* ===== MOBILE LANDSCAPE & SMALL TABLETS (640px - 768px) ===== */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 45%; /* 7.2px */
+  }
+
+  body {
+    grid-template-areas:
+      "header"
+      "nav"
+      "dashboard";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  header {
+    grid-area: header;
+    padding: 1rem 1.2rem;
+  }
+
+  .hello {
+    font-size: 2.4rem;
+  }
+
+  .whatTimeOfTheDay {
+    font-size: 1.4rem;
+  }
+
+  .call-to-action {
+    gap: 1.6rem;
+  }
+
+  .currentUserStatus {
+    padding: 0.6rem 1.2rem;
+    gap: 1.2rem;
+  }
+
+  .fullname-of-currentLoggedIn,
+  .role-of-currentLoggenIn {
+    display: none;
+  }
+
+  nav {
+    grid-area: nav;
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    padding: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  .logo-and-name {
+    margin-left: 0;
+    margin-right: 1.6rem;
+  }
+
+  .links {
+    white-space: nowrap;
+  }
+
+  .link {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.2rem;
+    gap: 0.8rem;
+  }
+
+  .theme-selection {
+    margin-left: auto;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+
+  .light-mode,
+  .dark-mode {
+    padding: 0.8rem 1.2rem;
+    gap: 0.8rem;
+  }
+
+  .light,
+  .dark {
+    font-size: 1.4rem;
+  }
+
+  .dashboard {
+    grid-area: dashboard;
+    padding: 1.2rem;
+  }
+
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .employee-count,
+  .applicant-count,
+  .attendance-count,
+  .project-count {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .my-Schedule {
+    padding: 1.6rem;
+  }
+
+  .attendance-View {
+    padding: 1.2rem;
+  }
+
+  .attendance-View > div {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 300px !important;
+  }
+
+  .attendance-overview {
+    padding: 1.2rem;
+  }
+
+  table,
+  .attendance-table {
+    font-size: 1.2rem;
+  }
+
+  thead th,
+  .attendance-table thead th {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  tbody td,
+  .attendance-table tbody td {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  tbody td:first-child img,
+  .attendance-table tbody td:first-child img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  #search-attendance-bar,
+  #payroll-attendance-bar,
+  #search-job-bar {
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+  }
+
+  .attendance-controls {
+    gap: 0.8rem;
+  }
+
+  .attendance-controls label,
+  .attendance-controls select {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== MOBILE PORTRAIT (480px and below) ===== */
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 40%; /* 6.4px */
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    height: auto;
+    padding: 1.2rem;
+  }
+
+  .welcomeNameandTime {
+    width: 100%;
+  }
+
+  .hello {
+    font-size: 2.2rem;
+  }
+
+  .whatTimeOfTheDay {
+    font-size: 1.4rem;
+  }
+
+  .call-to-action {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  nav {
+    padding: 0.8rem;
+    gap: 1.2rem;
+  }
+
+  .logo-and-name img {
+    width: 3rem;
+  }
+
+  .name {
+    font-size: 1.4rem;
+  }
+
+  nav ul {
+    gap: 0.6rem;
+  }
+
+  .link {
+    font-size: 1.2rem;
+    padding: 0.6rem 1rem;
+    gap: 0.6rem;
+  }
+
+  .fa-solid {
+    font-size: 1.6rem;
+  }
+
+  .dashboard {
+    padding: 1rem;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    gap: 1rem;
+  }
+
+  .justCover {
+    padding: 1rem;
+    gap: 1.6rem;
+  }
+
+  .te,
+  .ta,
+  .tatt,
+  .tp {
+    font-size: 1.4rem;
+  }
+
+  .countOfEmployee,
+  .countOfApplicant,
+  .countOfAttendance,
+  .countOfProjects {
+    font-size: 2rem;
+  }
+
+  .percentChange {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .my-Schedule {
+    padding: 1.2rem;
+  }
+
+  .schedule-header {
+    margin-bottom: 1.6rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  #month-year {
+    font-size: 1.4rem;
+  }
+
+  .weekdays div,
+  .days div {
+    padding: 0.6rem 0;
+    font-size: 1.2rem;
+  }
+
+  .days {
+    height: 20rem;
+  }
+
+  .attendance-View > div {
+    height: 250px !important;
+  }
+
+  .attendance-overview {
+    padding: 1rem;
+  }
+
+  .attendance-title p {
+    font-size: 1.4rem;
+  }
+
+  .view-more-attendance {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  table,
+  .attendance-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tbody tr {
+    border: 1px solid #e5e7eb4c;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  tbody td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  tbody td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    width: 45%;
+    padding-right: 1rem;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 600;
+    color: #9ca3af;
+  }
+
+  tbody td:first-child {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 0;
+  }
+
+  tbody td:first-child img {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .attendance-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .attendance-controls select {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .jobs-status-container {
+    gap: 1rem;
+  }
+
+  .active-jobs-box,
+  .inactive-jobs-box,
+  .completed-jobs-box {
+    padding: 1.2rem;
+  }
+
+  .active-jobs-box-title,
+  .inactive-jobs-box-title,
+  .completed-jobs-box-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .each-jobs-per-status {
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .job-title {
+    font-size: 1.2rem;
+  }
+
+  .job-desig {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===== VERY SMALL MOBILE (360px and below) ===== */
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 37.5%; /* 6px */
+  }
+
+  .hello {
+    font-size: 2rem;
+  }
+
+  .notification {
+    padding: 1rem;
+  }
+
+  .fa-bell {
+    font-size: 1.6rem;
+  }
+
+  .link {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .stat-icons .fa-users,
+  .stat-icons .fa-briefcase,
+  .stat-icons .fa-calendar {
+    font-size: 1rem;
+    padding: 1.2rem 1.8rem;
+  }
+
+  .countOfEmployee,
+  .countOfApplicant,
+  .countOfAttendance,
+  .countOfProjects {
+    font-size: 1.8rem;
+  }
+
+  .attendance-View > div {
+    height: 200px !important;
+  }
+}
+
+/* ===== LANDSCAPE ORIENTATION OVERRIDE ===== */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  nav {
+    position: static;
+    height: auto;
+  }
+
+  .dashboard-grid {
+    grid-template-rows: auto;
+  }
+
+  .my-Schedule {
+    grid-row: auto;
+  }
+
+  .days {
+    height: 18rem;
+  }
+}

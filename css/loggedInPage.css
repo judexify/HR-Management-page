@@ -521,6 +521,8 @@ tbody tr:hover {
   cursor: pointer;
 }
 
+/* ATTENDANCE ND PAYROLL */
+
 .attendance-page {
   width: 100%;
 }
@@ -653,4 +655,115 @@ tbody tr:hover {
 
 .attendance-controls select:hover {
   border-color: #7c3aed;
+}
+/* JOBS PAGE */
+.jobsBox {
+  margin-top: 1.25rem;
+}
+
+.jobs-status-container {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.active-jobs-box,
+.inactive-jobs-box,
+.completed-jobs-box {
+  flex: 1;
+  min-width: 17.5rem;
+  background-color: #0f172a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 0.0625rem solid #2a2a2a;
+  transition: border-color 0.3s ease;
+}
+
+.active-jobs-box:hover,
+.inactive-jobs-box:hover,
+.completed-jobs-box:hover {
+  border-color: #3a3a3a;
+}
+
+.active-jobs-box-title,
+.inactive-jobs-box-title,
+.completed-jobs-box-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.active-jobs-box-title::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #ef4444;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.inactive-jobs-box-title::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.completed-jobs-box-title::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.each-jobs-per-status {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #7c3aed07;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.each-jobs-per-status:last-child {
+  margin-bottom: 0;
+}
+
+.each-job-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.each-job-header .fa-briefcase {
+  color: #6b7280;
+  font-size: 1.25rem;
+  min-width: 1.25rem;
+  margin-top: 0.125rem;
+}
+
+.job-desig-title {
+  flex: 1;
+}
+
+.job-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+}
+
+.job-desig {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0;
 }
