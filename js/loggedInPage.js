@@ -4,6 +4,7 @@ import "./attendance.js";
 import "./fullAttendance.js";
 import "./payroll.js";
 import "./jobs.js";
+import "./candidates.js";
 
 const daysContainer = document.querySelector("#days");
 const monthYear = document.querySelector("#month-year");

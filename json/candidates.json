@@ -1,0 +1,304 @@
+{
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Leasie Watson",
+      "appliedFor": "UI/UX Designer",
+      "appliedDate": "July 14, 2025",
+      "email": "leasie.w@demo.com",
+      "mobile": "(629) 555-0129",
+      "status": "Selected",
+      "avatar": "./img/profile1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Darlene Robertson",
+      "appliedFor": "Sales Manager",
+      "appliedDate": "July 14, 2025",
+      "email": "agujudefeanyi@gma...",
+      "mobile": "(629) 555-0129",
+      "status": "Selected",
+      "avatar": "./img/profile2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Leslie Alexander",
+      "appliedFor": "Sr. UX Designer",
+      "appliedDate": "July 14, 2025",
+      "email": "leasie.w@demo.com",
+      "mobile": "(629) 555-0129",
+      "status": "Selected",
+      "avatar": "./img/profile3.png"
+    },
+    {
+      "id": 4,
+      "name": "Leasie Watson",
+      "appliedFor": "Sr. Python Developer",
+      "appliedDate": "July 14, 2025",
+      "email": "leasie.w@demo.com",
+      "mobile": "(629) 555-0129",
+      "status": "In Progress",
+      "avatar": "./img/profile4.png"
+    },
+    {
+      "id": 5,
+      "name": "Jacob Jones",
+      "appliedFor": "BDE",
+      "appliedDate": "July 14, 2025",
+      "email": "leasie.w@demo.com",
+      "mobile": "(629) 555-0129",
+      "status": "In Progress",
+      "avatar": "./img/profile5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Ronald Richards",
+      "appliedFor": "HR Executive",
+      "appliedDate": "July 14, 2025",
+      "email": "leasie.w@demo.com",
+      "mobile": "(629) 555-0129",
+      "status": "Rejected",
+      "avatar": "./img/profile6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Leasie Watson",
+      "appliedFor": "Project Manager",
+      "appliedDate": "July 14, 2025",
+      "email": "leasie.w@demo.com",
+      "mobile": "(629) 555-0129",
+      "status": "Rejected",
+      "avatar": "./img/profile7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Courtney Henry",
+      "appliedFor": "Frontend Developer",
+      "appliedDate": "July 15, 2025",
+      "email": "courtney.h@demo.com",
+      "mobile": "(629) 555-0130",
+      "status": "Selected",
+      "avatar": "./img/profile2.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Wade Warren",
+      "appliedFor": "Backend Developer",
+      "appliedDate": "July 15, 2025",
+      "email": "wade.warren@demo.com",
+      "mobile": "(629) 555-0131",
+      "status": "In Progress",
+      "avatar": "./img/profile4.png"
+    },
+    {
+      "id": 10,
+      "name": "Esther Howard",
+      "appliedFor": "Marketing Manager",
+      "appliedDate": "July 16, 2025",
+      "email": "esther.h@demo.com",
+      "mobile": "(629) 555-0132",
+      "status": "Selected",
+      "avatar": "./img/profile6.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Cameron Williamson",
+      "appliedFor": "DevOps Engineer",
+      "appliedDate": "July 16, 2023",
+      "email": "cameron.w@demo.com",
+      "mobile": "(629) 555-0133",
+      "status": "In Progress",
+      "avatar": "./img/profile1.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Brooklyn Simmons",
+      "appliedFor": "Content Writer",
+      "appliedDate": "July 17, 2023",
+      "email": "brooklyn.s@demo.com",
+      "mobile": "(629) 555-0134",
+      "status": "Selected",
+      "avatar": "./img/profile3.png"
+    },
+    {
+      "id": 13,
+      "name": "Jenny Wilson",
+      "appliedFor": "Product Manager",
+      "appliedDate": "July 17, 2025",
+      "email": "jenny.w@demo.com",
+      "mobile": "(629) 555-0135",
+      "status": "Rejected",
+      "avatar": "./img/profile5.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Robert Fox",
+      "appliedFor": "Data Analyst",
+      "appliedDate": "July 18, 2023",
+      "email": "robert.fox@demo.com",
+      "mobile": "(629) 555-0136",
+      "status": "In Progress",
+      "avatar": "./img/profile7.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Kristin Watson",
+      "appliedFor": "QA Engineer",
+      "appliedDate": "July 18, 2023",
+      "email": "kristin.w@demo.com",
+      "mobile": "(629) 555-0137",
+      "status": "Selected",
+      "avatar": "./img/profile1.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Marvin McKinney",
+      "appliedFor": "Full Stack Developer",
+      "appliedDate": "July 19, 2025",
+      "email": "marvin.m@demo.com",
+      "mobile": "(629) 555-0138",
+      "status": "In Progress",
+      "avatar": "./img/profile2.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Annette Black",
+      "appliedFor": "Graphic Designer",
+      "appliedDate": "July 19, 2023",
+      "email": "annette.b@demo.com",
+      "mobile": "(629) 555-0139",
+      "status": "Selected",
+      "avatar": "./img/profile3.png"
+    },
+    {
+      "id": 18,
+      "name": "Floyd Miles",
+      "appliedFor": "System Administrator",
+      "appliedDate": "July 20, 2023",
+      "email": "floyd.m@demo.com",
+      "mobile": "(629) 555-0140",
+      "status": "Rejected",
+      "avatar": "./img/profile4.png"
+    },
+    {
+      "id": 19,
+      "name": "Savannah Nguyen",
+      "appliedFor": "UI Designer",
+      "appliedDate": "July 20, 2025",
+      "email": "savannah.n@demo.com",
+      "mobile": "(629) 555-0141",
+      "status": "In Progress",
+      "avatar": "./img/profile5.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Dianne Russell",
+      "appliedFor": "Business Analyst",
+      "appliedDate": "July 21, 2025",
+      "email": "dianne.r@demo.com",
+      "mobile": "(629) 555-0142",
+      "status": "Selected",
+      "avatar": "./img/profile6.jpg"
+    },
+    {
+      "id": 21,
+      "name": "Albert Flores",
+      "appliedFor": "Mobile Developer",
+      "appliedDate": "July 21, 2025",
+      "email": "albert.f@demo.com",
+      "mobile": "(629) 555-0143",
+      "status": "In Progress",
+      "avatar": "./img/profile7.jpg"
+    },
+    {
+      "id": 22,
+      "name": "Cody Fisher",
+      "appliedFor": "SEO Specialist",
+      "appliedDate": "July 22, 2025",
+      "email": "cody.fisher@demo.com",
+      "mobile": "(629) 555-0144",
+      "status": "Selected",
+      "avatar": "./img/profile2.jpg"
+    },
+    {
+      "id": 23,
+      "name": "Theresa Webb",
+      "appliedFor": "Social Media Manager",
+      "appliedDate": "July 22, 2023",
+      "email": "theresa.w@demo.com",
+      "mobile": "(629) 555-0145",
+      "status": "Rejected",
+      "avatar": "./img/profile3.png"
+    },
+    {
+      "id": 24,
+      "name": "Ralph Edwards",
+      "appliedFor": "Cloud Architect",
+      "appliedDate": "July 23, 2023",
+      "email": "ralph.e@demo.com",
+      "mobile": "(629) 555-0146",
+      "status": "In Progress",
+      "avatar": "./img/profile7.jpg"
+    },
+    {
+      "id": 25,
+      "name": "Eleanor Pena",
+      "appliedFor": "UX Researcher",
+      "appliedDate": "July 23, 2025",
+      "email": "eleanor.p@demo.com",
+      "mobile": "(629) 555-0147",
+      "status": "Selected",
+      "avatar": "./img/profile1.jpg"
+    },
+    {
+      "id": 26,
+      "name": "Guy Hawkins",
+      "appliedFor": "Security Engineer",
+      "appliedDate": "July 24, 2025",
+      "email": "guy.h@demo.com",
+      "mobile": "(629) 555-0148",
+      "status": "In Progress",
+      "avatar": "./img/profile5.jpg"
+    },
+    {
+      "id": 27,
+      "name": "Jane Cooper",
+      "appliedFor": "Account Manager",
+      "appliedDate": "July 24, 2023",
+      "email": "jane.c@demo.com",
+      "mobile": "(629) 555-0149",
+      "status": "Selected",
+      "avatar": "./img/profile6.jpg"
+    },
+    {
+      "id": 28,
+      "name": "Arlene McCoy",
+      "appliedFor": "Video Editor",
+      "appliedDate": "July 25, 2023",
+      "email": "arlene.m@demo.com",
+      "mobile": "(629) 555-0150",
+      "status": "Rejected",
+      "avatar": "./img/profile4.png"
+    },
+    {
+      "id": 29,
+      "name": "Jerome Bell",
+      "appliedFor": "Network Engineer",
+      "appliedDate": "July 25, 2025",
+      "email": "jerome.b@demo.com",
+      "mobile": "(629) 555-0151",
+      "status": "In Progress",
+      "avatar": "./img/profile2.jpg"
+    },
+    {
+      "id": 30,
+      "name": "Kathryn Murphy",
+      "appliedFor": "Sr. Product Designer",
+      "appliedDate": "July 26, 2025",
+      "email": "kathryn.m@demo.com",
+      "mobile": "(629) 555-0152",
+      "status": "Selected",
+      "avatar": "./img/profile1.jpg"
+    }
+  ]
+}

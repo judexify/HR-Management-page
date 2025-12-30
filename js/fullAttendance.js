@@ -3,7 +3,11 @@
 import { getEmployees } from "./attendance.js";
 import { getJobs, renderJobNav, renderJobHead } from "./jobs.js";
 import { renderPayroll } from "./payroll.js";
-// import { jobs } from "./jobs.js";
+import {
+  getCandidates,
+  renderCandidates,
+  renderCandidatesHead,
+} from "./candidates.js";
 
 // DOM Elements
 const nav = document.querySelector("nav");
@@ -211,6 +215,12 @@ const handleNavClick = (link) => {
     getJobs().then((jobsData) => {
       renderJobHead(helloWord, capFirstLetter, whatTimeOfTheDay);
       renderJobNav(jobsData);
+    });
+  }
+  if (view === "candidates") {
+    getCandidates().then((candidates) => {
+      renderCandidatesHead(helloWord, capFirstLetter, whatTimeOfTheDay);
+      renderCandidates(candidates);
     });
   }
 };

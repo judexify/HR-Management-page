@@ -490,7 +490,8 @@ thead th {
   border-bottom: 1px solid #e5e7eb4c;
 }
 
-tbody td {
+tbody td,
+.data-output td {
   padding: 1.2rem;
   font-size: 1.4rem;
   border-bottom: 1px solid #e5e7eb4c;
@@ -502,7 +503,11 @@ tbody td:first-child {
   align-items: center;
   gap: 1.2rem;
 }
+.data-output td:nth-child(2) {
+  display: block;
+}
 
+.data-output td:nth-child(2) img,
 tbody td:first-child img {
   width: 4rem;
   height: 4rem;
@@ -511,7 +516,8 @@ tbody td:first-child img {
   flex-shrink: 0;
 }
 
-tbody td:first-child p {
+tbody td:first-child p,
+.data-output td:nth-child(2) p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -534,7 +540,8 @@ tbody tr:hover {
 
 #search-attendance-bar,
 #payroll-attendance-bar,
-#search-job-bar {
+#search-job-bar,
+#search-candidate-bar {
   width: 20%;
   padding: 1.2rem 2rem;
   font-size: 1.6rem;
@@ -547,7 +554,8 @@ tbody tr:hover {
 
 #search-attendance-bar:focus,
 #payroll-attendance-bar:focus,
-#search-job-bar:focus {
+#search-job-bar:focus,
+#search-candidate-bar:focus {
   outline: none;
   border-color: #7c3aed;
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
@@ -555,7 +563,8 @@ tbody tr:hover {
 
 #search-attendance-bar::placeholder,
 #payroll-attendance-bar::placeholder,
-#search-job-bar::placeholder {
+#search-job-bar::placeholder,
+#search-candidate-bar ::placeholder {
   color: #6b7280;
 }
 
@@ -572,8 +581,15 @@ tbody tr:hover {
   border-collapse: collapse;
   table-layout: fixed;
 }
+.candidate-table {
+  color: #e5e7eb;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
 
-.attendance-table thead th {
+.attendance-table thead th,
+.candidate-table thead th {
   text-align: left;
   padding: 1.2rem;
   font-size: 1.4rem;
@@ -582,20 +598,23 @@ tbody tr:hover {
   border-bottom: 2px solid #e5e7eb4c;
 }
 
-.attendance-table tbody td {
+.attendance-table tbody td,
+.candidate-table tbody td {
   padding: 1.6rem 1.2rem;
   font-size: 1.4rem;
   border-bottom: 1px solid #e5e7eb4c;
   vertical-align: middle;
 }
 
-.attendance-table tbody td:first-child {
-  display: flex;
+/* .attendance-table tbody td:first-child, */
+.candidate-table tbody td:nth-child(2) {
+  /* display: flex; */
   align-items: center;
   gap: 1.2rem;
 }
 
-.attendance-table tbody td:first-child img {
+.attendance-table tbody td:first-child img,
+.candidate-table tbody td:nth-child(2) img {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -604,7 +623,8 @@ tbody tr:hover {
   border: 2px solid #374151;
 }
 
-.attendance-table tbody td:first-child p {
+.attendance-table tbody td:first-child p,
+.candidate-table tbody td:nth-child(2) p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
