@@ -8,6 +8,8 @@ export const getCandidates = async () => {
   return res.json();
 };
 
+let currentDisplayCount = 10;
+
 export const renderCandidates = (candidatesData) => {
   dashBoard.innerHTML = "";
 
@@ -69,7 +71,24 @@ export const renderCandidates = (candidatesData) => {
 
   tableStructureHTML.appendChild(table);
 
-  const candidatesDataArr = candidatesData.candidates;
+  const rowSelectorHTML = `
+    <div class="attendance-controls">
+      <label for="numbers">Showing:</label>
+      <select id="numbers" name="number">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+  `;
+
+  tableStructureHTML.insertAdjacentHTML("beforeend", rowSelectorHTML);
+
+  const candidatesDataArr = candidatesData.candidates.slice(
+    0,
+    currentDisplayCount
+  );
 
   const candidateRowsHTML = candidatesDataArr
     .map((candidate) => {
@@ -105,7 +124,84 @@ export const renderCandidates = (candidatesData) => {
     })
     .join("");
   tbody.innerHTML = candidateRowsHTML;
+
+  const searchBar = document.querySelector("#search-candidate-bar");
+  if (searchBar) {
+    searchBar.addEventListener("input", (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      filterCandidate(searchTerm);
+    });
+  }
+
   console.log(candidatesData.candidates);
+
+  const filterCandidate = (searchTerm) => {
+    const filteredCandidate = candidatesDataArr.filter((candidates) => {
+      return (
+        candidates.name.toLowerCase().includes(searchTerm) ||
+        candidates.email.toLowerCase().includes(searchTerm)
+      );
+    });
+
+    const slicedCandidates = filteredCandidate.slice(0, currentDisplayCount);
+
+    const employeeRowsHTML = slicedCandidates
+      .map((candidates) => {
+        const statusStyles = {
+          Selected: { color: "#86EFAC", bg: "#14532D" },
+          "In Progress": { color: "#FBBF24", bg: "#78350F" },
+          Rejected: { color: "#FCA5A5", bg: "#7F1D1D" },
+        };
+
+        const status = candidates.status;
+        const style = statusStyles[status];
+
+        return `
+     <tr>
+        <td>${candidates.id}</td>
+          <td>
+            <img src="${candidates.avatar}" alt="${candidates.name}">
+            <p>${candidates.name}</p>
+          </td>
+          <td>${candidates.appliedFor}</td>
+          <td>${candidates.appliedDate}</td>
+          <td>${candidates.email}</td>
+          <td>${candidates.mobile}</td>
+          <td class="truth"><span style="
+                color: ${style.color};
+                background-color: ${style.bg};
+                padding: 0.6rem 1.2rem;
+                border-radius: 5px;
+                display: inline-block;
+              ">${status}</span></td>
+        </tr>
+    `;
+      })
+      .join("");
+
+    if (tbody) {
+      tbody.innerHTML =
+        employeeRowsHTML ||
+        `
+      <tr>
+        <td colspan="5" style="text-align: center; padding: 2rem; color: #9ca3af;">
+          No employees found matching "${searchTerm}"
+        </td>
+      </tr>
+    `;
+    }
+  };
+
+  // event listener for select dropdown
+  const selectElement = document.querySelector("#numbers");
+  if (selectElement) {
+    selectElement.addEventListener("change", (e) => {
+      console.log("no");
+      const selectedCount = parseInt(e.target.value);
+      currentDisplayCount = selectedCount;
+      filterCandidate(searchBar.value.toLowerCase());
+    });
+  }
 };
 
 export const renderCandidatesHead = (h, c, w) => {

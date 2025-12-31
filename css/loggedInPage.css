@@ -498,14 +498,11 @@ tbody td,
   vertical-align: middle;
 }
 
-tbody td:first-child {
+/* tbody td:first-child {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-}
-.data-output td:nth-child(2) {
-  display: block;
-}
+} */
 
 .data-output td:nth-child(2) img,
 tbody td:first-child img {
