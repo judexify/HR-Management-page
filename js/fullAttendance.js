@@ -3,6 +3,7 @@
 import { getEmployees } from "./attendance.js";
 import { getJobs, renderJobNav, renderJobHead } from "./jobs.js";
 import { renderPayroll } from "./payroll.js";
+import { renderLeaveHead, renderLeave } from "./leave.js";
 import {
   getCandidates,
   renderCandidates,
@@ -37,7 +38,7 @@ const renderEmployeeRows = (count, container) => {
         Late: { color: "#FBBF24", bg: "#78350F" },
       };
       const status = emp.attendance.truth;
-      const style = statusStyles[status] || { color: "#fff", bg: "#000" };
+      const style = statusStyles[status];
 
       return `
         <tr>
@@ -207,21 +208,32 @@ const handleNavClick = (link) => {
   activeView = view;
 
   if (view === "dashboard") location.assign("./loggedInPage.html");
-  if (view === "attendance")
+  if (view === "attendance") {
+    window.location.hash = "attendance";
     renderAttendanceView(helloWord, capFirstLetter, whatTimeOfTheDay);
-  if (view === "payroll")
+  }
+  if (view === "payroll") {
+    window.location.hash = "payroll";
     renderPayroll(helloWord, capFirstLetter, whatTimeOfTheDay);
+  }
   if (view === "jobs") {
     getJobs().then((jobsData) => {
+      window.location.hash = "jobs";
       renderJobHead(helloWord, capFirstLetter, whatTimeOfTheDay);
       renderJobNav(jobsData);
     });
   }
   if (view === "candidates") {
     getCandidates().then((candidates) => {
+      window.location.hash = "candidates";
       renderCandidatesHead(helloWord, capFirstLetter, whatTimeOfTheDay);
       renderCandidates(candidates);
     });
+  }
+  if (view === "leaves") {
+    window.location.hash = "leaves";
+    renderLeaveHead(helloWord, "Notification", whatTimeOfTheDay);
+    renderLeave(employeesData);
   }
 };
 
@@ -236,4 +248,11 @@ nav.addEventListener("click", (e) => {
 viewMore.addEventListener("click", () => {
   window.location.hash = "attendance";
   renderAttendanceView(helloWord, "Attendance", whatTimeOfTheDay);
+});
+
+const notificationBell = document.querySelector(".notification");
+notificationBell.addEventListener("click", function () {
+  window.location.hash = "leaves";
+  renderLeaveHead(helloWord, "Notification", whatTimeOfTheDay);
+  renderLeave(employeesData);
 });

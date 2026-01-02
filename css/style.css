@@ -154,3 +154,9 @@ input[type="submit"]:disabled {
   color: #f9fafb;
   font-size: 1.6rem;
 }
+.leave-page-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center;
+}

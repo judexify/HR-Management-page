@@ -28,9 +28,49 @@
         "timestamp": "Just now"
       },
       {
-        "message": "Password update successful",
-        "content": "John has successfully changed his password through a mail sent to him",
+        "message": "Check In Issue",
+        "content": "Alexa shared a message regarding check in issue",
         "timestamp": "7:40 AM"
+      },
+      {
+        "message": "Applied job for \"SalesManager\" Position",
+        "content": "@shane Watson has applied for job",
+        "timestamp": "9:00 AM"
+      },
+      {
+        "message": "New Employee Onboarding",
+        "content": "Mark Johnson has completed the onboarding process",
+        "timestamp": "Yesterday"
+      },
+      {
+        "message": "Timesheet Approval Needed",
+        "content": "5 pending timesheets require your approval",
+        "timestamp": "Yesterday"
+      },
+      {
+        "message": "Performance Review Due",
+        "content": "Quarterly review for Team A is due this Friday",
+        "timestamp": "2 days ago"
+      },
+      {
+        "message": "Shift Swap Request",
+        "content": "David Miller requested to swap shifts with Emma Brown",
+        "timestamp": "2 days ago"
+      },
+      {
+        "message": "Document Uploaded",
+        "content": "HR Policy Update document has been added by Admin",
+        "timestamp": "3 days ago"
+      },
+      {
+        "message": "Training Completion",
+        "content": "Jessica Lee completed Safety Training Module",
+        "timestamp": "3 days ago"
+      },
+      {
+        "message": "System Maintenance Scheduled",
+        "content": "Planned maintenance on Sunday 2:00 AM - 4:00 AM",
+        "timestamp": "4 days ago"
       }
     ],
     "applications": [
