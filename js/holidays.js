@@ -1,6 +1,18 @@
 "use strict";
 
 const dashBoard = document.querySelector(".dashboard");
+const body = document.body;
+const overlay = document.querySelector("#overlay");
+
+const modal = document.createElement("div");
+modal.classList.add("modal");
+
+const closeBtn = document.createElement("p");
+closeBtn.classList.add("close");
+closeBtn.textContent = "X";
+
+modal.appendChild(closeBtn);
+body.appendChild(modal);
 
 export const renderHoliday = (data) => {
   dashBoard.innerHTML = "";
@@ -141,7 +153,6 @@ const removeDuplicatesandGroup = (tbody, eachReducedHoliday) => {
 };
 
 const sortHolidayDates = (tbody, mappedData) => {
-  console.log(mappedData);
   const sortedData = mappedData.toSorted(
     (a, b) => new Date(a.date) - new Date(b.date)
   );
@@ -149,9 +160,12 @@ const sortHolidayDates = (tbody, mappedData) => {
   renderTableBody(tbody, sortedData);
 };
 
+// let daysOfWeek;
+
 const renderTableBody = (tbody, data) => {
+  console.log(data);
+
   data.forEach((el) => {
-    // console.log(el);
     const days = [
       "Monday",
       "Tuesday",
@@ -162,12 +176,50 @@ const renderTableBody = (tbody, data) => {
       "Sunday",
     ];
     const sortedDay = new Date(el.date).getDay();
+    const daysOfWeek = days[sortedDay];
+    el.days = daysOfWeek;
+  });
 
+  const renderModelItems = (e) => {
+    const clickedValue = e.target.textContent.trim().toLowerCase();
+
+    const findClickedValueInObject = data.find((el) => {
+      const holiday = String(el.holiday).trim().toLowerCase();
+      const date = String(el.date).trim().toLowerCase();
+      const days = String(el.days).trim().toLowerCase();
+
+      return (
+        clickedValue === holiday ||
+        clickedValue === date ||
+        clickedValue === days
+      );
+    });
+
+    if (findClickedValueInObject) {
+      modal.innerHTML = "";
+      modal.appendChild(closeBtn);
+
+      const heading = document.createElement("h2");
+      heading.classList.add("modalHeading");
+      heading.textContent = `For the ${findClickedValueInObject.holiday}, these are the affected persons`;
+      modal.append(heading);
+
+      const namesList = document.createElement("ul");
+      findClickedValueInObject.names.forEach((name) => {
+        const listItem = document.createElement("li");
+        listItem.classList.add("listname");
+        listItem.textContent = name;
+        namesList.appendChild(listItem);
+      });
+      modal.append(namesList);
+    }
+  };
+  data.forEach((el) => {
     const tr = document.createElement("tr");
     const td1 = document.createElement("td");
     td1.textContent = `${el.date}`;
     const td2 = document.createElement("td");
-    td2.textContent = days[sortedDay];
+    td2.textContent = el.days;
     const td3 = document.createElement("td");
     td3.textContent = `${el.holiday}`;
 
@@ -175,14 +227,32 @@ const renderTableBody = (tbody, data) => {
     tbody.appendChild(tr);
   });
 
+  const renderModalForShowNames = (e) => {
+    const modal = document.querySelector(".modal");
+    overlay.style.display = "block";
+    modal.style.display = "block";
+
+    renderModelItems(e);
+
+    const closeBtns = document.querySelector(".close");
+
+    closeBtns.addEventListener("click", function (e) {
+      if (e.target) {
+        overlay.style.display = "none";
+        modal.style.display = "none";
+      }
+    });
+  };
+
+  let showModal = false;
   const tableRow = document.querySelectorAll("tr");
   [...tableRow].forEach((tr) => {
     tr.addEventListener("click", function (e) {
-      console.log(e.target);
+      showModal = true;
+      renderModalForShowNames(e);
     });
   });
 };
-
 export const renderHolidayHead = (h, c, w) => {
   h.textContent = c;
   w.textContent = "All Holidays";
