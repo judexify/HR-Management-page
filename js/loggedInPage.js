@@ -6,6 +6,7 @@ import "./payroll.js";
 import "./jobs.js";
 import "./candidates.js";
 import "./leave.js";
+import "./holidays.js";
 
 const daysContainer = document.querySelector("#days");
 const monthYear = document.querySelector("#month-year");

@@ -90,17 +90,17 @@
     "upcoming_holidays": [
       {
         "holiday_name": "New Year's Day",
-        "date": "January 01, 2024",
+        "date": "January 01, 2025",
         "status": true
       },
       {
         "holiday_name": "International Workers' Day",
-        "date": "May 29, 2024",
+        "date": "May 29, 2025",
         "status": true
       },
       {
         "holiday_name": "Independence Day (USA)",
-        "date": "July 04, 2024",
+        "date": "July 04, 2025",
         "status": true
       }
     ]
@@ -145,12 +145,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Halloween",
-        "date": "October 31, 2024",
+        "date": "October 31, 2025",
         "status": true
       },
       {
         "holiday_name": "Boxing Day",
-        "date": "December 26, 2024",
+        "date": "December 26, 2025",
         "status": true
       }
     ]
@@ -195,12 +195,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "New Year's Day",
-        "date": "January 01, 2024",
+        "date": "January 01, 2025",
         "status": true
       },
       {
         "holiday_name": "Christmas Day",
-        "date": "December 25, 2024",
+        "date": "December 25, 2025",
         "status": false
       }
     ]
@@ -250,12 +250,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Memorial Day",
-        "date": "May 27, 2024",
+        "date": "May 27, 2025",
         "status": true
       },
       {
         "holiday_name": "Labor Day",
-        "date": "September 02, 2024",
+        "date": "September 02, 2025",
         "status": true
       }
     ]
@@ -306,12 +306,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Thanksgiving",
-        "date": "November 28, 2024",
+        "date": "November 28, 2025",
         "status": true
       },
       {
         "holiday_name": "Christmas Eve",
-        "date": "December 24, 2024",
+        "date": "December 24, 2025",
         "status": true
       }
     ]
@@ -361,12 +361,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Independence Day (USA)",
-        "date": "July 04, 2024",
+        "date": "July 04, 2025",
         "status": true
       },
       {
         "holiday_name": "Veterans Day",
-        "date": "November 11, 2024",
+        "date": "November 11, 2025",
         "status": true
       }
     ]
@@ -411,12 +411,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "New Year's Day",
-        "date": "January 01, 2024",
+        "date": "January 01, 2025",
         "status": true
       },
       {
         "holiday_name": "Christmas Day",
-        "date": "December 25, 2024",
+        "date": "December 25, 2025",
         "status": true
       }
     ]
@@ -466,12 +466,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Memorial Day",
-        "date": "May 27, 2024",
+        "date": "May 27, 2025",
         "status": true
       },
       {
         "holiday_name": "Labor Day",
-        "date": "September 02, 2024",
+        "date": "September 02, 2025",
         "status": true
       }
     ]
@@ -516,12 +516,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Independence Day (USA)",
-        "date": "July 04, 2024",
+        "date": "July 04, 2025",
         "status": true
       },
       {
         "holiday_name": "Thanksgiving",
-        "date": "November 28, 2024",
+        "date": "November 28, 2025",
         "status": true
       }
     ]
@@ -571,12 +571,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Memorial Day",
-        "date": "May 27, 2024",
+        "date": "May 27, 2025",
         "status": true
       },
       {
         "holiday_name": "Christmas Day",
-        "date": "December 25, 2024",
+        "date": "December 25, 2025",
         "status": true
       }
     ]
@@ -621,12 +621,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Labor Day",
-        "date": "September 02, 2024",
+        "date": "September 02, 2025",
         "status": true
       },
       {
         "holiday_name": "Thanksgiving",
-        "date": "November 28, 2024",
+        "date": "November 28, 2025",
         "status": true
       }
     ]
@@ -676,12 +676,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Veterans Day",
-        "date": "November 11, 2024",
+        "date": "November 11, 2025",
         "status": true
       },
       {
         "holiday_name": "Christmas Day",
-        "date": "December 25, 2024",
+        "date": "December 25, 2025",
         "status": true
       }
     ]
@@ -726,12 +726,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Memorial Day",
-        "date": "May 27, 2024",
+        "date": "May 27, 2025",
         "status": true
       },
       {
         "holiday_name": "Independence Day (USA)",
-        "date": "July 04, 2024",
+        "date": "July 04, 2025",
         "status": true
       }
     ]
@@ -776,12 +776,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Thanksgiving",
-        "date": "November 28, 2024",
+        "date": "November 28, 2025",
         "status": true
       },
       {
         "holiday_name": "New Year's Day",
-        "date": "January 01, 2024",
+        "date": "January 01, 2025",
         "status": true
       }
     ]
@@ -831,12 +831,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Christmas Day",
-        "date": "December 25, 2024",
+        "date": "December 25, 2025",
         "status": true
       },
       {
         "holiday_name": "Boxing Day",
-        "date": "December 26, 2024",
+        "date": "December 26, 2025",
         "status": true
       }
     ]
@@ -881,12 +881,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Memorial Day",
-        "date": "May 27, 2024",
+        "date": "May 27, 2025",
         "status": true
       },
       {
         "holiday_name": "Labor Day",
-        "date": "September 02, 2024",
+        "date": "September 02, 2025",
         "status": true
       }
     ]
@@ -936,12 +936,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Independence Day (USA)",
-        "date": "July 04, 2024",
+        "date": "July 04, 2025",
         "status": true
       },
       {
         "holiday_name": "Veterans Day",
-        "date": "November 11, 2024",
+        "date": "November 11, 2025",
         "status": true
       }
     ]
@@ -986,12 +986,12 @@
     "upcoming_holidays": [
       {
         "holiday_name": "Memorial Day",
-        "date": "May 27, 2024",
+        "date": "May 27, 2025",
         "status": true
       },
       {
         "holiday_name": "Thanksgiving",
-        "date": "November 28, 2024",
+        "date": "November 28, 2025",
         "status": true
       }
     ]

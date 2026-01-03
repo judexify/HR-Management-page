@@ -492,7 +492,7 @@ thead th {
 
 tbody td,
 .data-output td {
-  padding: 1.2rem;
+  padding: 2.4rem;
   font-size: 1.4rem;
   border-bottom: 1px solid #e5e7eb4c;
   vertical-align: middle;
@@ -538,7 +538,8 @@ tbody tr:hover {
 #search-attendance-bar,
 #payroll-attendance-bar,
 #search-job-bar,
-#search-candidate-bar {
+#search-candidate-bar,
+#search-holiday-bar {
   width: 20%;
   padding: 1.2rem 2rem;
   font-size: 1.6rem;
@@ -549,10 +550,15 @@ tbody tr:hover {
   transition: all 0.3s ease;
 }
 
+#search-holiday-bar {
+  width: 100%;
+}
+
 #search-attendance-bar:focus,
 #payroll-attendance-bar:focus,
 #search-job-bar:focus,
-#search-candidate-bar:focus {
+#search-candidate-bar:focus,
+#search-holiday-bar:focus {
   outline: none;
   border-color: #7c3aed;
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
@@ -561,7 +567,8 @@ tbody tr:hover {
 #search-attendance-bar::placeholder,
 #payroll-attendance-bar::placeholder,
 #search-job-bar::placeholder,
-#search-candidate-bar ::placeholder {
+#search-candidate-bar ::placeholder,
+#search-holiday-bar::placeholder {
   color: #6b7280;
 }
 
