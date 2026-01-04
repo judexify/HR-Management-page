@@ -2,7 +2,6 @@
 
 const dashBoard = document.querySelector(".dashboard");
 
-("use strict");
 
 const THEMES = { DARK: "dark", LIGHT: "light", SYSTEM: "system" };
 
