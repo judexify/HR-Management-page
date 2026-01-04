@@ -12,7 +12,7 @@ const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
 const applyTheme = (theme) => {
   document.body.classList.remove(THEMES.DARK, THEMES.LIGHT);
   document.body.classList.add(theme);
-  console.log(`Theme applied: ${theme}`);
+ 
 };
 
 const getSystemTheme = () =>
