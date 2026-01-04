@@ -10,6 +10,7 @@ import {
   renderCandidatesHead,
 } from "./candidates.js";
 import { renderHoliday, renderHolidayHead } from "./holidays.js";
+import { renderSettingPage ,renderSettingsHead } from "./settings.js";
 
 // DOM Elements
 const nav = document.querySelector("nav");
@@ -240,6 +241,11 @@ const handleNavClick = (link) => {
     window.location.hash = "holidays";
     renderHolidayHead(helloWord, "Holidays", whatTimeOfTheDay);
     renderHoliday(employeesData);
+  }
+  if(view==="settings"){
+    window.location.hash = "settings";
+     renderSettingsHead(helloWord, "Settings", whatTimeOfTheDay);
+     renderSettingPage()
   }
 };
 

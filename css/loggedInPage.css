@@ -844,3 +844,284 @@ tbody tr:hover {
   padding: 0.5rem;
   border-radius: 5px;
 }
+
+/* SETTINGS SECTION */
+.settingsDiv {
+  margin-bottom: 5.6rem;
+  padding: 1.2rem;
+}
+.customizationDiv,
+.languageDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.customizationDiv {
+  margin-bottom: 2.4rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid #e5e7eb4c;
+}
+.appearanceText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.appearanceTextTitle {
+  color: #e5e7eb;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.appearanceTextDetails {
+  color: #e5e7ebbc;
+  font-size: 1.2rem;
+}
+.attendance-controls {
+}
+#themeSelection,
+#languageSelection {
+  width: 12rem;
+}
+
+/* css styles for light-mode */
+
+body {
+  background-color: #0f172a;
+  color: #e5e7eb;
+}
+
+/* Light Theme */
+body.light {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+/* Nav always stays dark */
+nav {
+  background-color: #111827 !important;
+}
+
+nav .name,
+nav .link,
+nav .light,
+nav .dark {
+  color: #e5e7eb !important;
+}
+
+nav .fa-solid {
+  color: #e5e7eb !important;
+}
+
+nav .link:hover {
+  background-color: #0f172a !important;
+  border-radius: 7px;
+}
+
+nav .link:focus {
+  color: #7c3aed !important;
+  background-color: #e5e7eb !important;
+  border-radius: 7px;
+  margin-left: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+nav .link:focus::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.5rem;
+  background-color: #7c3aed;
+  border-radius: inherit;
+}
+
+nav .link:focus-visible {
+  outline: 2px solid #7c3aed;
+}
+
+header,
+.dashboard,
+.my-Schedule,
+.attendance-View,
+.attendance-overview,
+.employee-count,
+.applicant-count,
+.attendance-count,
+.project-count,
+.attendance-table-container {
+  background-color: #111827;
+  border-color: #e5e7eb4c;
+}
+
+.hello,
+.fullname-of-currentLoggedIn,
+.title,
+.te,
+.ta,
+.tatt,
+.tp,
+.countOfEmployee,
+.countOfApplicant,
+.countOfAttendance,
+.countOfProjects,
+.time-update,
+.appearanceTextTitle,
+.newMemberText {
+  color: #e5e7eb;
+}
+
+.whatTimeOfTheDay,
+.role-of-currentLoggenIn,
+thead th,
+.time,
+.appearanceTextDetails {
+  color: #9ca3af;
+}
+
+table tbody td,
+table tbody td p,
+table tbody td span,
+.attendance-table td,
+.attendance-table td p,
+.candidate-table td,
+.candidate-table td p {
+  background-color: transparent;
+  color: #e5e7eb;
+  border-color: #e5e7eb4c;
+}
+
+thead th {
+  color: #9ca3af;
+  border-color: #e5e7eb4c;
+}
+
+select,
+input[type="text"] {
+  background-color: #111827;
+  color: #e5e7eb;
+  border-color: #e5e7eb4c;
+}
+
+.fa-bell,
+.fa-user,
+.fa-circle-chevron-down {
+  color: #e5e7eb;
+}
+
+.weekdays div,
+.days div {
+  color: #9ca3af;
+}
+
+.notification,
+.currentUserStatus,
+.theme-selection {
+  border-color: #e5e7eb4c;
+}
+
+body.light header,
+body.light .dashboard,
+body.light .my-Schedule,
+body.light .attendance-View,
+body.light .attendance-overview,
+body.light .employee-count,
+body.light .applicant-count,
+body.light .attendance-count,
+body.light .project-count,
+body.light .attendance-table-container {
+  background-color: #ffffff;
+  border-color: #d1d5db;
+}
+
+body.light .hello,
+body.light .fullname-of-currentLoggedIn,
+body.light .title,
+body.light .te,
+body.light .ta,
+body.light .tatt,
+body.light .tp,
+body.light .countOfEmployee,
+body.light .countOfApplicant,
+body.light .countOfAttendance,
+body.light .countOfProjects,
+body.light .time-update,
+body.light .appearanceTextTitle,
+body.light .newMemberText {
+  color: #111827;
+}
+
+body.light .whatTimeOfTheDay,
+body.light .role-of-currentLoggenIn,
+body.light thead th,
+body.light .time,
+body.light .appearanceTextDetails {
+  color: #6b7280;
+}
+
+body.light table tbody td,
+body.light table tbody td p,
+body.light table tbody td span,
+body.light .attendance-table td,
+body.light .attendance-table td p,
+body.light .candidate-table td,
+body.light .candidate-table td p {
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+body.light thead th {
+  color: #6b7280;
+  border-color: #d1d5db;
+}
+
+body.light select,
+body.light input[type="text"] {
+  background-color: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+body.light .fa-bell,
+body.light .fa-user,
+body.light .fa-circle-chevron-down {
+  color: #111827;
+}
+
+body.light .weekdays div,
+body.light .days div {
+  color: #6b7280;
+}
+
+body.light .notification,
+body.light .currentUserStatus,
+body.light .theme-selection {
+  border-color: #d1d5db;
+}
+
+tbody tr:hover,
+.attendance-table tbody tr:hover {
+  background-color: #7c3aed17;
+  cursor: pointer;
+}
+
+.days div:hover {
+  background-color: #7c3aed14;
+}
+
+.days div:focus {
+  background-color: #7c3aed3f !important;
+}
+
+.days .today {
+  background-color: #7c3aed;
+  color: #e5e7eb;
+}
+
+.light-mode:hover {
+  background-color: #0f172a !important;
+}
+
+.dark-mode {
+  background-color: #7c3aed !important;
+}
