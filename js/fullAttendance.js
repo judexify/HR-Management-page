@@ -10,7 +10,11 @@ import {
   renderCandidatesHead,
 } from "./candidates.js";
 import { renderHoliday, renderHolidayHead } from "./holidays.js";
-import { renderSettingPage ,renderSettingsHead } from "./settings.js";
+import { renderSettingPage, renderSettingsHead } from "./settings.js";
+import {
+  renderAllEmployeePage,
+  renderAllEmployeeHead,
+} from "./allEmployees.js";
 
 // DOM Elements
 const nav = document.querySelector("nav");
@@ -242,10 +246,15 @@ const handleNavClick = (link) => {
     renderHolidayHead(helloWord, "Holidays", whatTimeOfTheDay);
     renderHoliday(employeesData);
   }
-  if(view==="settings"){
+  if (view === "settings") {
     window.location.hash = "settings";
-     renderSettingsHead(helloWord, "Settings", whatTimeOfTheDay);
-     renderSettingPage()
+    renderSettingsHead(helloWord, "Settings", whatTimeOfTheDay);
+    renderSettingPage();
+  }
+  if (view === "allEmployee") {
+    window.location.hash = "allEmployees";
+    renderAllEmployeeHead(helloWord, "Employee", whatTimeOfTheDay);
+    renderAllEmployeePage(employeesData);
   }
 };
 

@@ -8,6 +8,7 @@ import "./candidates.js";
 import "./leave.js";
 import "./holidays.js";
 import "./settings.js";
+import "./allEmployees.js";
 
 const daysContainer = document.querySelector("#days");
 const monthYear = document.querySelector("#month-year");

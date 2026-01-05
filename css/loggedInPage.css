@@ -875,8 +875,7 @@ tbody tr:hover {
   color: #e5e7ebbc;
   font-size: 1.2rem;
 }
-.attendance-controls {
-}
+
 #themeSelection,
 #languageSelection {
   width: 12rem;
@@ -1124,4 +1123,238 @@ tbody tr:hover,
 
 .dark-mode {
   background-color: #7c3aed !important;
+}
+
+/* ALL EMPLOYEE */
+
+/* Employee Page Search and Actions */
+.employee-search-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+
+#search-employee-bar {
+  width: 20%;
+  padding: 1.2rem 2rem;
+  font-size: 1.6rem;
+  background-color: #111827;
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+#search-employee-bar:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+#search-employee-bar::placeholder {
+  color: #6b7280;
+}
+
+.employee-action-buttons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.add-employee-btn,
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #e5e7eb;
+  font-size: 1.4rem;
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-employee-btn {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+}
+
+.filter-btn {
+  background-color: transparent;
+}
+
+.add-employee-btn:hover {
+  background-color: #6d28d9;
+  box-shadow: 0 0 1.4rem rgba(124, 58, 237, 0.25);
+}
+
+.filter-btn:hover {
+  box-shadow: 0 0 1.4rem rgba(124, 58, 237, 0.25);
+}
+
+.add-employee-btn i,
+.filter-btn i {
+  font-size: 1.6rem;
+}
+
+/* Employee Table Specific Styles */
+.employee-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.employee-status {
+  font-weight: 500;
+}
+
+.status-permanent {
+  color: #a78bfa;
+}
+
+.status-contract {
+  color: #7c3aed;
+}
+
+.employee-action-cell {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.action-icon {
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #e5e7eb;
+  transition: color 0.2s ease;
+}
+
+.action-icon:hover {
+  color: #7c3aed;
+}
+
+/* Pagination Footer */
+.employee-pagination-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.4rem;
+}
+
+.showing-container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.showing-label {
+  color: #9ca3af;
+  font-size: 1.4rem;
+}
+
+.entries-select {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.4rem;
+  background-color: #111827;
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.entries-select:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+.entries-select:hover {
+  border-color: #7c3aed;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.pagination-info {
+  color: #6b7280;
+  font-size: 1.4rem;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.pagination-btn {
+  padding: 0.8rem 1.2rem;
+  background-color: #111827;
+  border: 1px solid #e5e7eb4c;
+  border-radius: 5px;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all 0.2s ease;
+}
+
+.page-number-btn {
+  min-width: 3.5rem;
+}
+
+.pagination-btn:hover {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+}
+
+.pagination-btn.active-page {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+}
+
+/* Light Mode Overrides */
+body.light #search-employee-bar {
+  background-color: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+body.light .entries-select,
+body.light .pagination-btn {
+  background-color: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+body.light .filter-btn {
+  background-color: transparent;
+  border-color: #d1d5db;
+}
+
+body.light .add-employee-btn {
+  background-color: #7c3aed;
+  color: #e5e7eb;
+  border-color: #7c3aed;
+}
+
+body.light .showing-label,
+body.light .pagination-info {
+  color: #6b7280;
+}
+
+body.light .action-icon {
+  color: #111827;
+}
+
+body.light .action-icon:hover {
+  color: #7c3aed;
+}
+
+body.light .pagination-btn:hover,
+body.light .pagination-btn.active-page {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+  color: #e5e7eb;
 }
