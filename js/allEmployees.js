@@ -16,6 +16,7 @@ export const renderAllEmployeePage = (data) => {
   dashBoard.appendChild(tableStructureHTML);
   selectFn(data);
   paginationFn(data);
+  searchBarFn(data, tableStructureHTML);
 };
 
 const createEmployeeSearchBar = () => {
@@ -61,6 +62,78 @@ const createEmployeeSearchBar = () => {
   searchWrapper.appendChild(actionButtons);
 
   return searchWrapper;
+};
+
+const searchBarFn = (data, tableStructure) => {
+  //   // Search bar
+  const searchBar = document.querySelector("#search-employee-bar");
+
+  if (searchBar) {
+    searchBar.addEventListener("input", (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+
+      filterEmployees(data, searchTerm, tableStructure);
+    });
+  }
+};
+
+// // Filter employees
+const filterEmployees = (data, searchTerm, tableStructure) => {
+  if (!data) return;
+
+  const filteredEmployees = data.filter((emp) => {
+    return (
+      emp.name.toLowerCase().includes(searchTerm) ||
+      emp.department.toLowerCase().includes(searchTerm) ||
+      emp.title.toLowerCase().includes(searchTerm) ||
+      emp.employment_type.toLowerCase().includes(searchTerm) ||
+      emp.status.toLowerCase().includes(searchTerm)
+    );
+  });
+
+  const slicedEmployees = filteredEmployees.slice(0, currentDisplayedItem);
+
+  const employeeRowsHTML = slicedEmployees
+    .map(
+      (emp) => `
+      <tr>
+        <td>${emp.id}</td>
+        <td>
+          <img src="${emp.imagePath}" alt="${emp.name}">
+          <p>${emp.name}</p>
+        </td>
+        <td>${emp.department}</td>
+        <td>${emp.title}</td>
+        <td>${emp.employment_type}</td>
+        <td>
+        <span class="employee-status ${
+          emp.status === "Permanent" ? "status-permanent" : "status-contract"
+        }">${emp.status}</span>
+      </td>
+      <td>
+        <div class="employee-action-cell">
+          <i class="fa-regular fa-eye action-icon"></i>
+          <i class="fa-regular fa-pen-to-square action-icon"></i>
+          <i class="fa-regular fa-trash-can action-icon"></i>
+        </div>
+      </td>
+      </tr>
+    `
+    )
+    .join("");
+
+  const tableContainer = tableStructure.querySelector(".attendance-table");
+  const tbody = tableContainer.querySelector(".data-output");
+
+  if (tbody) {
+    tbody.innerHTML =
+      employeeRowsHTML ||
+      `<tr>
+        <td colspan="5" style="text-align: center; padding: 2rem; color: #9ca3af;">
+          No employees found matching "${searchTerm}"
+        </td>
+      </tr>`;
+  }
 };
 
 const createEmployeeTableStructure = (data) => {
@@ -357,11 +430,6 @@ const createPaginationFooter = (data) => {
 
   return paginationFooter;
 };
-
-// if i press the next number
-// clear the tbody
-//  ++
-// render the next Display item
 
 export const renderAllEmployeeHead = (h, c, w) => {
   h.textContent = c;
