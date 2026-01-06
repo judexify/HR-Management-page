@@ -1,6 +1,10 @@
 "use strict";
 
 const dashBoard = document.querySelector(".dashboard");
+let currentDisplayedItem = 10;
+const chunkArr = [];
+let currentPage = 0;
+let isPaginationInitialized = false;
 
 export const renderAllEmployeePage = (data) => {
   dashBoard.innerHTML = "";
@@ -10,6 +14,8 @@ export const renderAllEmployeePage = (data) => {
 
   dashBoard.appendChild(searchWrapper);
   dashBoard.appendChild(tableStructureHTML);
+  selectFn(data);
+  paginationFn(10, data);
 };
 
 const createEmployeeSearchBar = () => {
@@ -62,7 +68,7 @@ const createEmployeeTableStructure = (data) => {
   tableStructureHTML.classList.add("attendance-table-container");
 
   const table = createEmployeeTable();
-  populateEmployeeTableBody(data, table);
+  populateEmployeeTableBody(data.slice(0, 10), table);
 
   tableStructureHTML.appendChild(table);
 
@@ -99,6 +105,29 @@ const createEmployeeTable = () => {
   table.appendChild(thead);
 
   return table;
+};
+
+const selectFn = (data) => {
+  const entriesSelect = document.querySelector(".entries-select");
+  if (entriesSelect) {
+    entriesSelect.addEventListener("change", (e) => {
+      currentDisplayedItem = parseInt(e.target.value);
+      const slicedItems = data.slice(0, currentDisplayedItem);
+
+      const table = document.querySelector(".attendance-table");
+      if (table) {
+        const oldTbody = table.querySelector(".data-output");
+        if (oldTbody) {
+          table.removeChild(oldTbody);
+        }
+        populateEmployeeTableBody(slicedItems, table);
+      }
+      // paginationFn(currentDisplayedItem, slicedItems);s
+
+      chunkArr.length = 0; // Clear old chunks
+      currentPage = 0;
+    });
+  }
 };
 
 const populateEmployeeTableBody = (data, table) => {
@@ -143,7 +172,7 @@ const populateEmployeeTableBody = (data, table) => {
 
     const statusCell = document.createElement("td");
     const statusSpan = document.createElement("span");
-    statusSpan.textContent = employee.status || "N/A";
+    statusSpan.textContent = employee.status;
     statusSpan.classList.add("employee-status");
 
     if (employee.status === "Permanent") {
@@ -176,6 +205,75 @@ const populateEmployeeTableBody = (data, table) => {
 
   table.appendChild(tbody);
 };
+// function chunks(array, size) {
+//   for (let i = 0; i < array.length; i += size) {
+//     console.log(array.slice(i, i + size));
+//   }
+// }
+
+// chunk(arr, 5);
+
+const mutateDataForPagination = (e, currentDisplayedItem, data) => {
+  const btnText = e.target.textContent;
+
+  // Force re-chunk if going back to page 0 and chunks exist
+  if (btnText === "Previous" && currentPage === 1) {
+    chunkArr.length = 0;
+  }
+
+  if (chunkArr.length === 0) {
+    for (let i = 0; i < data.length; i += currentDisplayedItem) {
+      chunkArr.push(data.slice(i, i + currentDisplayedItem));
+    }
+  }
+  nextBtn(chunkArr, e);
+  prevBtn(chunkArr, e);
+};
+
+const nextBtn = (arr, e) => {
+  const next = e.target.textContent;
+
+  if (next === "Next" && currentPage < arr.length - 1) {
+    currentPage++;
+    const table = document.querySelector(".attendance-table");
+
+    const oldTbody = table.querySelector(".data-output");
+    if (oldTbody) {
+      table.removeChild(oldTbody);
+    }
+
+    populateEmployeeTableBody(arr[currentPage], table);
+
+    // paginationFn(currentDisplayedItem, slicedItems);
+  }
+};
+const prevBtn = (arr, e) => {
+  const prev = e.target.textContent;
+
+  if (prev === "Previous" && currentPage > 0) {
+    currentPage--;
+    const table = document.querySelector(".attendance-table");
+    const oldTbody = table.querySelector(".data-output");
+    if (oldTbody) {
+      table.removeChild(oldTbody);
+    }
+
+    populateEmployeeTableBody(arr[currentPage], table);
+
+    // paginationFn(currentDisplayedItem, slicedItems);
+  }
+};
+
+const paginationFn = (currentDisplayedItem, data) => {
+  if (isPaginationInitialized) return;
+  isPaginationInitialized = true;
+
+  const pagBtns = document.querySelector(".pagination-buttons");
+
+  pagBtns.addEventListener("click", (e) => {
+    mutateDataForPagination(e, currentDisplayedItem, data);
+  });
+};
 
 const createPaginationFooter = (data) => {
   const paginationFooter = document.createElement("div");
@@ -205,6 +303,7 @@ const createPaginationFooter = (data) => {
   option15.value = 15;
   option15.textContent = 15;
   entriesSelect.appendChild(option15);
+  option10.selected = true;
 
   const option20 = document.createElement("option");
   option20.value = 20;
@@ -228,36 +327,36 @@ const createPaginationFooter = (data) => {
   prevBtn.classList.add("pagination-btn");
   prevBtn.textContent = "Previous";
 
-  const page1Btn = document.createElement("button");
-  page1Btn.classList.add("pagination-btn", "page-number-btn", "active-page");
-  page1Btn.textContent = "1";
+  // const page1Btn = document.createElement("button");
+  // page1Btn.classList.add("pagination-btn", "page-number-btn", "active-page");
+  // page1Btn.textContent = "1";
 
-  const page2Btn = document.createElement("button");
-  page2Btn.classList.add("pagination-btn", "page-number-btn");
-  page2Btn.textContent = "2";
+  // const page2Btn = document.createElement("button");
+  // page2Btn.classList.add("pagination-btn", "page-number-btn");
+  // page2Btn.textContent = "2";
 
-  const page3Btn = document.createElement("button");
-  page3Btn.classList.add("pagination-btn", "page-number-btn");
-  page3Btn.textContent = "3";
+  // const page3Btn = document.createElement("button");
+  // page3Btn.classList.add("pagination-btn", "page-number-btn");
+  // page3Btn.textContent = "3";
 
-  const page4Btn = document.createElement("button");
-  page4Btn.classList.add("pagination-btn", "page-number-btn");
-  page4Btn.textContent = "4";
+  // const page4Btn = document.createElement("button");
+  // page4Btn.classList.add("pagination-btn", "page-number-btn");
+  // page4Btn.textContent = "4";
 
-  const page5Btn = document.createElement("button");
-  page5Btn.classList.add("pagination-btn", "page-number-btn");
-  page5Btn.textContent = "5";
+  // const page5Btn = document.createElement("button");
+  // page5Btn.classList.add("pagination-btn", "page-number-btn");
+  // page5Btn.textContent = "5";
 
   const nextBtn = document.createElement("button");
   nextBtn.classList.add("pagination-btn");
   nextBtn.textContent = "Next";
 
   paginationButtons.appendChild(prevBtn);
-  paginationButtons.appendChild(page1Btn);
-  paginationButtons.appendChild(page2Btn);
-  paginationButtons.appendChild(page3Btn);
-  paginationButtons.appendChild(page4Btn);
-  paginationButtons.appendChild(page5Btn);
+  // paginationButtons.appendChild(page1Btn);
+  // paginationButtons.appendChild(page2Btn);
+  // paginationButtons.appendChild(page3Btn);
+  // paginationButtons.appendChild(page4Btn);
+  // paginationButtons.appendChild(page5Btn);
   paginationButtons.appendChild(nextBtn);
 
   paginationContainer.appendChild(paginationInfo);
@@ -268,6 +367,11 @@ const createPaginationFooter = (data) => {
 
   return paginationFooter;
 };
+
+// if i press the next number
+// clear the tbody
+//  ++
+// render the next Display item
 
 export const renderAllEmployeeHead = (h, c, w) => {
   h.textContent = c;
