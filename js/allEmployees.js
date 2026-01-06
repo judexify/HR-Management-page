@@ -43,20 +43,7 @@ const createEmployeeSearchBar = () => {
   addEmployeeBtn.appendChild(addIcon);
   addEmployeeBtn.appendChild(addText);
 
-  const filterBtn = document.createElement("button");
-  filterBtn.classList.add("filter-btn");
-
-  const filterIcon = document.createElement("i");
-  filterIcon.className = "fa-solid fa-filter";
-
-  const filterText = document.createElement("span");
-  filterText.textContent = "Filter";
-
-  filterBtn.appendChild(filterIcon);
-  filterBtn.appendChild(filterText);
-
   actionButtons.appendChild(addEmployeeBtn);
-  actionButtons.appendChild(filterBtn);
 
   searchWrapper.appendChild(searchInput);
   searchWrapper.appendChild(actionButtons);
@@ -390,39 +377,14 @@ const createPaginationFooter = (data) => {
   prevBtn.classList.add("pagination-btn");
   prevBtn.textContent = "Previous";
 
-  // const page1Btn = document.createElement("button");
-  // page1Btn.classList.add("pagination-btn", "page-number-btn", "active-page");
-  // page1Btn.textContent = "1";
-
-  // const page2Btn = document.createElement("button");
-  // page2Btn.classList.add("pagination-btn", "page-number-btn");
-  // page2Btn.textContent = "2";
-
-  // const page3Btn = document.createElement("button");
-  // page3Btn.classList.add("pagination-btn", "page-number-btn");
-  // page3Btn.textContent = "3";
-
-  // const page4Btn = document.createElement("button");
-  // page4Btn.classList.add("pagination-btn", "page-number-btn");
-  // page4Btn.textContent = "4";
-
-  // const page5Btn = document.createElement("button");
-  // page5Btn.classList.add("pagination-btn", "page-number-btn");
-  // page5Btn.textContent = "5";
-
   const nextBtn = document.createElement("button");
   nextBtn.classList.add("pagination-btn");
   nextBtn.textContent = "Next";
 
   paginationButtons.appendChild(prevBtn);
-  // paginationButtons.appendChild(page1Btn);
-  // paginationButtons.appendChild(page2Btn);
-  // paginationButtons.appendChild(page3Btn);
-  // paginationButtons.appendChild(page4Btn);
-  // paginationButtons.appendChild(page5Btn);
+
   paginationButtons.appendChild(nextBtn);
 
-  // paginationContainer.appendChild(paginationInfo);
   paginationContainer.appendChild(paginationButtons);
 
   paginationFooter.appendChild(showingContainer);
