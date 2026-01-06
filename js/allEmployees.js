@@ -15,7 +15,7 @@ export const renderAllEmployeePage = (data) => {
   dashBoard.appendChild(searchWrapper);
   dashBoard.appendChild(tableStructureHTML);
   selectFn(data);
-  paginationFn(10, data);
+  paginationFn(data);
 };
 
 const createEmployeeSearchBar = () => {
@@ -122,10 +122,12 @@ const selectFn = (data) => {
         }
         populateEmployeeTableBody(slicedItems, table);
       }
-      // paginationFn(currentDisplayedItem, slicedItems);s
 
-      chunkArr.length = 0; // Clear old chunks
+      chunkArr.length = 0;
       currentPage = 0;
+      for (let i = 0; i < data.length; i += currentDisplayedItem) {
+        chunkArr.push(data.slice(i, i + currentDisplayedItem));
+      }
     });
   }
 };
@@ -205,18 +207,10 @@ const populateEmployeeTableBody = (data, table) => {
 
   table.appendChild(tbody);
 };
-// function chunks(array, size) {
-//   for (let i = 0; i < array.length; i += size) {
-//     console.log(array.slice(i, i + size));
-//   }
-// }
 
-// chunk(arr, 5);
-
-const mutateDataForPagination = (e, currentDisplayedItem, data) => {
+const mutateDataForPagination = (e, data) => {
   const btnText = e.target.textContent;
 
-  // Force re-chunk if going back to page 0 and chunks exist
   if (btnText === "Previous" && currentPage === 1) {
     chunkArr.length = 0;
   }
@@ -243,8 +237,6 @@ const nextBtn = (arr, e) => {
     }
 
     populateEmployeeTableBody(arr[currentPage], table);
-
-    // paginationFn(currentDisplayedItem, slicedItems);
   }
 };
 const prevBtn = (arr, e) => {
@@ -259,19 +251,17 @@ const prevBtn = (arr, e) => {
     }
 
     populateEmployeeTableBody(arr[currentPage], table);
-
-    // paginationFn(currentDisplayedItem, slicedItems);
   }
 };
 
-const paginationFn = (currentDisplayedItem, data) => {
+const paginationFn = (data) => {
   if (isPaginationInitialized) return;
   isPaginationInitialized = true;
 
   const pagBtns = document.querySelector(".pagination-buttons");
 
   pagBtns.addEventListener("click", (e) => {
-    mutateDataForPagination(e, currentDisplayedItem, data);
+    mutateDataForPagination(e, data);
   });
 };
 
@@ -318,7 +308,7 @@ const createPaginationFooter = (data) => {
 
   const paginationInfo = document.createElement("span");
   paginationInfo.classList.add("pagination-info");
-  paginationInfo.textContent = `Showing 1 to 10 of ${data.length} members`;
+  // paginationInfo.textContent = `Showing 1 to 10 of ${data.length} members`;
 
   const paginationButtons = document.createElement("div");
   paginationButtons.classList.add("pagination-buttons");
@@ -359,7 +349,7 @@ const createPaginationFooter = (data) => {
   // paginationButtons.appendChild(page5Btn);
   paginationButtons.appendChild(nextBtn);
 
-  paginationContainer.appendChild(paginationInfo);
+  // paginationContainer.appendChild(paginationInfo);
   paginationContainer.appendChild(paginationButtons);
 
   paginationFooter.appendChild(showingContainer);
