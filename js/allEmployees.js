@@ -348,12 +348,13 @@ const createPaginationFooter = (data) => {
   option10.value = 10;
   option10.textContent = 10;
   entriesSelect.appendChild(option10);
+  option10.selected = true;
 
   const option15 = document.createElement("option");
   option15.value = 15;
   option15.textContent = 15;
   entriesSelect.appendChild(option15);
-  option10.selected = true;
+  
 
   const option20 = document.createElement("option");
   option20.value = 20;
