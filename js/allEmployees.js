@@ -17,6 +17,7 @@ export const renderAllEmployeePage = (data) => {
   selectFn(data);
   paginationFn(data);
   searchBarFn(data, tableStructureHTML);
+  newEmployeeFn();
 };
 
 const createEmployeeSearchBar = () => {
@@ -391,6 +392,57 @@ const createPaginationFooter = (data) => {
   paginationFooter.appendChild(paginationContainer);
 
   return paginationFooter;
+};
+
+const renderFormSection = () => {
+  dashBoard.innerHTML = "";
+  const formDiv = document.createElement("div");
+  formDiv.classList.add("attendance-table-container");
+
+  const formContainer = document.createElement("div");
+  formContainer.classList.add("form-container");
+
+  const buttonsDiv = document.createElement("div");
+  buttonsDiv.classList.add("buttonsDiv");
+
+  const personalInfoBtn = document.createElement("button");
+  personalInfoBtn.textContent = "Personal Information";
+  personalInfoBtn.classList.add("personalInfoBtn");
+
+  const proffesionalInfoBtn = document.createElement("button");
+  proffesionalInfoBtn.textContent = "Professional Information";
+  proffesionalInfoBtn.classList.add("proffesionalInfoBtn");
+
+  const documentsBtn = document.createElement("button");
+  documentsBtn.textContent = "Documents";
+  documentsBtn.classList.add("documentsBtn");
+
+  const accessAccountBtn = document.createElement("button");
+  accessAccountBtn.textContent = "Access Account";
+  accessAccountBtn.classList.add("accessAccountBtn");
+
+  buttonsDiv.append(
+    personalInfoBtn,
+    proffesionalInfoBtn,
+    documentsBtn,
+    accessAccountBtn
+  );
+  const eachFormSectionDiv = document.createElement("div");
+  eachFormSectionDiv.classList.add("eachFormSectionDiv");
+
+  formContainer.append(buttonsDiv, eachFormSectionDiv);
+  formDiv.appendChild(formContainer);
+  dashBoard.appendChild(formDiv);
+};
+
+// Add new Employee is a form
+const newEmployeeFn = () => {
+  const addEmployeeBtn = document.querySelector(".add-employee-btn");
+  if (addEmployeeBtn) {
+    addEmployeeBtn.addEventListener("click", (e) => {
+      renderFormSection();
+    });
+  }
 };
 
 export const renderAllEmployeeHead = (h, c, w) => {

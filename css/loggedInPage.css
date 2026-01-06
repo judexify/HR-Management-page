@@ -1358,3 +1358,32 @@ body.light .pagination-btn.active-page {
   border-color: #7c3aed;
   color: #e5e7eb;
 }
+
+/* ADD NEW EMPLOYEE SECTION */
+.buttonsDiv {
+  display: flex;
+  align-items: center;
+  gap: 6.4rem;
+  border-bottom: 1px solid #9ca3af;
+}
+
+.personalInfoBtn,
+.proffesionalInfoBtn,
+.documentsBtn,
+.accessAccountBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 1.2rem;
+}
+
+.personalInfoBtn:hover,
+.proffesionalInfoBtn:hover,
+.documentsBtn:hover,
+.accessAccountBtn:hover {
+  color: #6d28d9;
+}
