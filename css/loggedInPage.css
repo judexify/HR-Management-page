@@ -191,7 +191,11 @@ nav ul {
 /* current page indicator */
 
 .link.active,
-.link[aria-current="page"] {
+.link.active:hover,
+.link.active:focus,
+.link[aria-current="page"],
+.link[aria-current="page"]:hover,
+.link[aria-current="page"]:focus {
   color: #7c3aed;
   background-color: #e5e7eb;
   border-radius: 7px;
@@ -201,7 +205,11 @@ nav ul {
 }
 
 .link.active::before,
-.link[aria-current="page"]::before {
+.link.active:hover::before,
+.link.active:focus::before,
+.link[aria-current="page"]::before,
+.link[aria-current="page"]:hover::before,
+.link[aria-current="page"]:focus::before {
   content: "";
   position: absolute;
   top: 0;
