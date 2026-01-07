@@ -220,6 +220,7 @@ nav ul {
   border-radius: inherit;
 }
 
+/* KEYBOARD FOCUS indicator - should be DIFFERENT from active page */
 .link:focus-visible {
   outline: 2px solid #7c3aed;
   outline-offset: 2px;
