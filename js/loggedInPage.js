@@ -212,3 +212,19 @@ const renderDateToStatGrid = () => {
     dates.textContent = currentDate;
   }
 };
+
+
+const navLinks = document.querySelectorAll('.link');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    
+    navLinks.forEach(l => {
+      l.classList.remove('active');
+      l.removeAttribute('aria-current');
+    });
+    
+    this.classList.add('active');
+    this.setAttribute('aria-current', 'page');
+  });
+});
