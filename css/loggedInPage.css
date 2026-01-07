@@ -166,6 +166,7 @@ nav ul {
   display: flex;
   align-items: center;
 }
+
 .link {
   display: flex;
   align-items: center;
@@ -177,14 +178,20 @@ nav ul {
   transition: all 100ms ease;
   padding: 1.2rem 2.4rem;
 }
+
 .fa-solid {
   font-size: 2.4rem;
 }
+
 .link:hover {
   background-color: #0f172a;
   border-radius: 7px;
 }
-.link:focus {
+
+/* current page indicator */
+
+.link.active,
+.link[aria-current="page"] {
   color: #7c3aed;
   background-color: #e5e7eb;
   border-radius: 7px;
@@ -192,7 +199,9 @@ nav ul {
   position: relative;
   overflow: hidden;
 }
-.link:focus::before {
+
+.link.active::before,
+.link[aria-current="page"]::before {
   content: "";
   position: absolute;
   top: 0;
@@ -203,29 +212,11 @@ nav ul {
   border-radius: inherit;
 }
 
-/* .link.active {
-  color: #7c3aed;
-  background-color: #e5e7eb;
-  border-radius: 7px;
-  margin-left: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.link.active::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 0.5rem;
-  background-color: #7c3aed;
-  border-radius: inherit;
-} */
+/* KEYBOARD FOCUS indicator - should be DIFFERENT from active page */
 .link:focus-visible {
   outline: 2px solid #7c3aed;
+  outline-offset: 2px;
 }
-
 .theme-selection {
   margin-top: auto;
   display: flex;
