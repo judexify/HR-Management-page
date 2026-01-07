@@ -394,7 +394,7 @@ const createPaginationFooter = (data) => {
   return paginationFooter;
 };
 
-// Render Personal Information Form
+//  Personal Information Form
 const renderPersonalInfoForm = () => {
   const formSection = document.querySelector(".eachFormSectionDiv");
   formSection.innerHTML = `
@@ -440,7 +440,6 @@ const renderPersonalInfoForm = () => {
           <option disabled selected>Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
-          <option value="other">Other</option>
         </select>
       </div>
       
@@ -482,7 +481,6 @@ const renderPersonalInfoForm = () => {
     </div>
   `;
 
-  // Photo upload functionality
   const photoInput = document.getElementById("photoUpload");
   const cameraIcon = document.getElementById("cameraIcon");
   const uploadText = document.getElementById("uploadText");
@@ -504,13 +502,13 @@ const renderPersonalInfoForm = () => {
     }
   });
 
-  // Next button
+  // Next button on personal info
   document.querySelector(".next-button").addEventListener("click", () => {
-    console.log("Next clicked");
+    setActiveButton(document.querySelector(".proffesionalInfoBtn"));
+    renderProfessionalInfoForm();
   });
 };
 
-// Set active button
 const setActiveButton = (activeBtn) => {
   document.querySelectorAll(".buttonsDiv button").forEach((btn) => {
     btn.classList.remove("active");
@@ -518,7 +516,127 @@ const setActiveButton = (activeBtn) => {
   activeBtn.classList.add("active");
 };
 
-// Update renderFormSection
+// Render Professional Information Form
+const renderProfessionalInfoForm = () => {
+  const formSection = document.querySelector(".eachFormSectionDiv");
+  formSection.innerHTML = `
+    <div class="form-grid">
+      <div class="form-group">
+        <input type="text" placeholder="Employee ID" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" placeholder="Username" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <select class="form-select">
+          <option disabled selected>Select Employee Type</option>
+          <option value="full-time">Full Time</option>
+          <option value="part-time">Part Time</option>
+          <option value="contract">Contract</option>
+          <option value="intern">Intern</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <input type="email" placeholder="Email Address" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <select class="form-select">
+          <option disabled selected>Select Department</option>
+          <option value="hr">Human Resources</option>
+          <option value="it">IT</option>
+          <option value="finance">Finance</option>
+          <option value="marketing">Marketing</option>
+          <option value="sales">Sales</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <input type="text" placeholder="Enter Designation" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <select class="form-select">
+          <option disabled selected>Select Working Days</option>
+          <option value="5-days">5 Days (Mon-Fri)</option>
+          <option value="6-days">6 Days (Mon-Sat)</option>
+          <option value="shift">Shift Based</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <input type="text" placeholder="Select Joining Date" class="form-input" id="joiningDate">
+      </div>
+      
+      <div class="form-group full-width">
+        <textarea placeholder="Select Office Location" class="form-textarea"></textarea>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button class="back-button">Back</button>
+      <button class="next-button">Next</button>
+    </div>
+  `;
+
+  // Back button on professional info
+  document.querySelector(".back-button").addEventListener("click", () => {
+    setActiveButton(document.querySelector(".personalInfoBtn"));
+    renderPersonalInfoForm();
+  });
+
+  // Next button on professional info
+  document.querySelector(".next-button").addEventListener("click", () => {
+    setActiveButton(document.querySelector(".accessAccountBtn"));
+    renderAccessAccountForm();
+  });
+};
+
+// Render Access Account Form
+const renderAccessAccountForm = () => {
+  const formSection = document.querySelector(".eachFormSectionDiv");
+  formSection.innerHTML = `
+    <div class="form-grid">
+      <div class="form-group">
+        <input type="email" placeholder="Enter Email Address" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" placeholder="Enter Slack ID" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" placeholder="Enter Skype ID" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" placeholder="Enter Github ID" class="form-input">
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button class="back-button">Back</button>
+      <button class="submit-button">Submit</button>
+    </div>
+  `;
+
+  // Back button on access account
+  document.querySelector(".back-button").addEventListener("click", () => {
+    setActiveButton(document.querySelector(".proffesionalInfoBtn"));
+    renderProfessionalInfoForm();
+  });
+
+  // Submit button on access account
+  document.querySelector(".submit-button").addEventListener("click", () => {
+    console.log("Form submitted!");
+    // Add your form submission logic here
+  });
+};
+
+//  renderFormSection
 const renderFormSection = () => {
   dashBoard.innerHTML = "";
   dashBoard.innerHTML = `
@@ -527,7 +645,6 @@ const renderFormSection = () => {
         <div class="buttonsDiv">
           <button class="personalInfoBtn active">Personal Information</button>
           <button class="proffesionalInfoBtn">Professional Information</button>
-          <button class="documentsBtn">Documents</button>
           <button class="accessAccountBtn">Access Account</button>
         </div>
         <div class="eachFormSectionDiv"></div>
@@ -535,29 +652,6 @@ const renderFormSection = () => {
     </div>
   `;
 
-  document.querySelector(".personalInfoBtn").addEventListener("click", (e) => {
-    setActiveButton(e.target);
-    renderPersonalInfoForm();
-  });
-
-  document
-    .querySelector(".proffesionalInfoBtn")
-    .addEventListener("click", (e) => {
-      setActiveButton(e.target);
-      // Add your professional info form here
-    });
-
-  document.querySelector(".documentsBtn").addEventListener("click", (e) => {
-    setActiveButton(e.target);
-    // Add your documents form here
-  });
-
-  document.querySelector(".accessAccountBtn").addEventListener("click", (e) => {
-    setActiveButton(e.target);
-    // Add your access account form here
-  });
-
-  // Render first form
   renderPersonalInfoForm();
 };
 

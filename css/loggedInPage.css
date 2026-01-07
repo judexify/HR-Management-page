@@ -905,9 +905,9 @@ nav .dark {
   color: #e5e7eb;
 }
 
-nav .fa-solid {
+/* nav .fa-solid {
   color: #e5e7eb;
-}
+} */
 
 nav .link:hover {
   background-color: #0f172a !important;
@@ -1393,7 +1393,8 @@ body.light .pagination-btn.active-page {
 .documentsBtn.active,
 .accessAccountBtn.active {
   color: #6d28d9;
-  /* border-bottom: 3px solid #6d28d9; */
+  border-bottom: 3px solid #6d28d9;
+  padding-bottom: 0.9rem;
 }
 
 .eachFormSectionDiv {
@@ -1532,5 +1533,59 @@ body.light .pagination-btn.active-page {
 }
 
 .next-button:active {
+  transform: translateY(0);
+}
+
+/* page 2 Professional */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3.2rem;
+}
+
+.back-button {
+  background-color: transparent;
+  color: #9ca3af;
+  border: 1px solid #4b5563;
+  border-radius: 0.6rem;
+  padding: 1.2rem 3.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #374151;
+  color: #e5e7eb;
+  border-color: #6b7280;
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+/* Submit Button on Access Button */
+.submit-button {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 1.2rem 3.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%);
+  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.4);
+  transform: translateY(-2px);
+}
+
+.submit-button:active {
   transform: translateY(0);
 }

@@ -28,7 +28,6 @@ export const renderLeave = (data) => {
   notificationHeadText.textContent = "Notifications";
   notificationHeadText.style.cssText = `
 font-size:2.4rem;
-color: #e5e7eb;
 font-weight: 500;
 `;
 
@@ -96,9 +95,8 @@ font-weight: 500;
       contentTopic.classList.add("contentTopic");
       contentTopic.textContent = `${eachNotifs.message}`;
       contentTopic.style.cssText = `
-    color :#e5e7eb;
     font-size:1.6rem;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom:1.2rem
     `;
 
@@ -106,7 +104,7 @@ font-weight: 500;
       contents.classList.add("contents");
       contents.textContent = `${eachNotifs.content}`;
       contents.style.cssText = `
-    color : #9ca3af;
+    color : #535559ff;
     font-size: 1.4rem;
     `;
 
