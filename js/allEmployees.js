@@ -355,7 +355,6 @@ const createPaginationFooter = (data) => {
   option15.value = 15;
   option15.textContent = 15;
   entriesSelect.appendChild(option15);
-  
 
   const option20 = document.createElement("option");
   option20.value = 20;
@@ -395,52 +394,177 @@ const createPaginationFooter = (data) => {
   return paginationFooter;
 };
 
-const renderFormSection = () => {
-  dashBoard.innerHTML = "";
-  const formDiv = document.createElement("div");
-  formDiv.classList.add("attendance-table-container");
+// Render Personal Information Form
+const renderPersonalInfoForm = () => {
+  const formSection = document.querySelector(".eachFormSectionDiv");
+  formSection.innerHTML = `
+    <div class="photo-upload-section">
+      <div class="camera-icon" id="cameraIcon">📷</div>
+      <span class="upload-text" id="uploadText">Upload Photo</span>
+      <input type="file" accept="image/*" class="photo-upload-input" id="photoUpload">
+    </div>
 
-  const formContainer = document.createElement("div");
-  formContainer.classList.add("form-container");
+    <div class="form-grid">
+      <div class="form-group">
+        <input type="text" placeholder="First Name" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" placeholder="Last Name" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <input type="tel" placeholder="Mobile Number" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <input type="email" placeholder="Email Address" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <input type="text" placeholder="mm/dd/yyyy" class="form-input">
+      </div>
+      
+      <div class="form-group">
+        <select class="form-select">
+          <option disabled selected>Marital Status</option>
+          <option value="single">Single</option>
+          <option value="married">Married</option>
+          <option value="divorced">Divorced</option>
+          <option value="widowed">Widowed</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <select class="form-select">
+          <option disabled selected>Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <select class="form-select">
+          <option disabled selected>Nationality</option>
+          <option value="nigerian">Nigerian</option>
+          <option value="american">American</option>
+          <option value="british">British</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group full-width">
+        <textarea placeholder="Address" class="form-textarea"></textarea>
+      </div>
+      
+      <div class="form-group triple-grid">
+        <select class="form-select">
+          <option disabled selected>City</option>
+          <option value="lagos">Lagos</option>
+          <option value="abuja">Abuja</option>
+          <option value="port-harcourt">Port Harcourt</option>
+        </select>
+        
+        <select class="form-select">
+          <option disabled selected>State</option>
+          <option value="lagos">Lagos</option>
+          <option value="fct">FCT</option>
+          <option value="rivers">Rivers</option>
+        </select>
+        
+        <input type="text" placeholder="ZIP Code" class="form-input">
+      </div>
+    </div>
 
-  const buttonsDiv = document.createElement("div");
-  buttonsDiv.classList.add("buttonsDiv");
+    <div class="next-button-container">
+      <button class="next-button">Next</button>
+    </div>
+  `;
 
-  const personalInfoBtn = document.createElement("button");
-  personalInfoBtn.textContent = "Personal Information";
-  personalInfoBtn.classList.add("personalInfoBtn");
+  // Photo upload functionality
+  const photoInput = document.getElementById("photoUpload");
+  const cameraIcon = document.getElementById("cameraIcon");
+  const uploadText = document.getElementById("uploadText");
 
-  const proffesionalInfoBtn = document.createElement("button");
-  proffesionalInfoBtn.textContent = "Professional Information";
-  proffesionalInfoBtn.classList.add("proffesionalInfoBtn");
+  cameraIcon.addEventListener("click", () => photoInput.click());
+  uploadText.addEventListener("click", () => photoInput.click());
 
-  const documentsBtn = document.createElement("button");
-  documentsBtn.textContent = "Documents";
-  documentsBtn.classList.add("documentsBtn");
+  photoInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        cameraIcon.style.backgroundImage = `url(${event.target.result})`;
+        cameraIcon.style.backgroundSize = "cover";
+        cameraIcon.style.backgroundPosition = "center";
+        cameraIcon.innerHTML = "";
+      };
+      reader.readAsDataURL(file);
+    }
+  });
 
-  const accessAccountBtn = document.createElement("button");
-  accessAccountBtn.textContent = "Access Account";
-  accessAccountBtn.classList.add("accessAccountBtn");
-
-  buttonsDiv.append(
-    personalInfoBtn,
-    proffesionalInfoBtn,
-    documentsBtn,
-    accessAccountBtn
-  );
-  const eachFormSectionDiv = document.createElement("div");
-  eachFormSectionDiv.classList.add("eachFormSectionDiv");
-
-  formContainer.append(buttonsDiv, eachFormSectionDiv);
-  formDiv.appendChild(formContainer);
-  dashBoard.appendChild(formDiv);
+  // Next button
+  document.querySelector(".next-button").addEventListener("click", () => {
+    console.log("Next clicked");
+  });
 };
 
-// Add new Employee is a form
+// Set active button
+const setActiveButton = (activeBtn) => {
+  document.querySelectorAll(".buttonsDiv button").forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  activeBtn.classList.add("active");
+};
+
+// Update renderFormSection
+const renderFormSection = () => {
+  dashBoard.innerHTML = "";
+  dashBoard.innerHTML = `
+    <div class="attendance-table-container">
+      <div class="form-container">
+        <div class="buttonsDiv">
+          <button class="personalInfoBtn active">Personal Information</button>
+          <button class="proffesionalInfoBtn">Professional Information</button>
+          <button class="documentsBtn">Documents</button>
+          <button class="accessAccountBtn">Access Account</button>
+        </div>
+        <div class="eachFormSectionDiv"></div>
+      </div>
+    </div>
+  `;
+
+  document.querySelector(".personalInfoBtn").addEventListener("click", (e) => {
+    setActiveButton(e.target);
+    renderPersonalInfoForm();
+  });
+
+  document
+    .querySelector(".proffesionalInfoBtn")
+    .addEventListener("click", (e) => {
+      setActiveButton(e.target);
+      // Add your professional info form here
+    });
+
+  document.querySelector(".documentsBtn").addEventListener("click", (e) => {
+    setActiveButton(e.target);
+    // Add your documents form here
+  });
+
+  document.querySelector(".accessAccountBtn").addEventListener("click", (e) => {
+    setActiveButton(e.target);
+    // Add your access account form here
+  });
+
+  // Render first form
+  renderPersonalInfoForm();
+};
+
 const newEmployeeFn = () => {
   const addEmployeeBtn = document.querySelector(".add-employee-btn");
   if (addEmployeeBtn) {
-    addEmployeeBtn.addEventListener("click", (e) => {
+    addEmployeeBtn.addEventListener("click", () => {
       renderFormSection();
     });
   }
