@@ -2,7 +2,6 @@
 
 const dashBoard = document.querySelector(".dashboard");
 
-
 const THEMES = { DARK: "dark", LIGHT: "light", SYSTEM: "system" };
 
 const getStoredTheme = () => localStorage.getItem("theme") || THEMES.DARK;
@@ -11,7 +10,6 @@ const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
 const applyTheme = (theme) => {
   document.body.classList.remove(THEMES.DARK, THEMES.LIGHT);
   document.body.classList.add(theme);
- 
 };
 
 const getSystemTheme = () =>
@@ -91,14 +89,17 @@ export const renderSettingPage = () => {
 
   const optionValueOne = document.createElement("option");
   optionValueOne.id = "dark";
-  optionValueOne.value = optionValueOne.textContent = "🌙 Dark";
+  optionValueOne.value = "dark";
+  optionValueOne.textContent = "🌙 Dark";
 
   const optionValueTwo = document.createElement("option");
-  optionValueTwo.value = optionValueTwo.textContent = "☀️ Light";
+  optionValueTwo.value = "light";
+  optionValueTwo.textContent = "☀️ Light";
   optionValueTwo.id = "light";
 
   const optionValueThree = document.createElement("option");
-  optionValueThree.value = optionValueThree.textContent = "🖥️ System";
+  optionValueThree.value = "system";
+  optionValueThree.textContent = "🖥️ System";
   optionValueThree.id = "system";
 
   const languageDiv = document.createElement("div");

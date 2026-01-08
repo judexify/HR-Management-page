@@ -1,5 +1,5 @@
 /* ========================================
-   MEDIA QUERIES FOR HR MANAGEMENT SYSTEM
+   COMPLETE MEDIA QUERIES FOR HR MANAGEMENT SYSTEM
    ======================================== */
 
 /* ===== TABLET & SMALLER LAPTOPS (1024px and below) ===== */
@@ -70,8 +70,38 @@
 
   #search-attendance-bar,
   #payroll-attendance-bar,
-  #search-job-bar {
+  #search-job-bar,
+  #search-employee-bar {
     width: 30%;
+  }
+
+  /* Add New Employee Form */
+  .form-grid {
+    gap: 2rem;
+  }
+
+  .eachFormSectionDiv {
+    padding: 2.4rem;
+  }
+
+  /* Jobs Page */
+  .jobs-status-container {
+    gap: 1rem;
+  }
+
+  .each-jobs-per-status {
+    padding: 0.8rem;
+  }
+
+  /* Employee Table */
+  .employee-action-buttons {
+    gap: 1rem;
+  }
+
+  .add-employee-btn,
+  .filter-btn {
+    padding: 1rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -149,7 +179,8 @@
 
   #search-attendance-bar,
   #payroll-attendance-bar,
-  #search-job-bar {
+  #search-job-bar,
+  #search-employee-bar {
     width: 40%;
   }
 
@@ -161,6 +192,84 @@
   .inactive-jobs-box,
   .completed-jobs-box {
     min-width: 100%;
+  }
+
+  /* Add New Employee Form */
+  .buttonsDiv {
+    gap: 4rem;
+    overflow-x: auto;
+  }
+
+  .personalInfoBtn,
+  .proffesionalInfoBtn,
+  .documentsBtn,
+  .accessAccountBtn {
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+
+  .form-grid {
+    gap: 1.8rem;
+  }
+
+  .eachFormSectionDiv {
+    padding: 2rem;
+  }
+
+  .photo-upload-section {
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Employee Search */
+  .employee-search-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
+
+  #search-employee-bar {
+    width: 100%;
+  }
+
+  .employee-action-buttons {
+    justify-content: flex-start;
+  }
+
+  /* Pagination */
+  .employee-pagination-footer {
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: stretch;
+  }
+
+  .pagination-container {
+    justify-content: center;
+  }
+
+  /* Theme selection - FIX for tablet */
+  .theme-selection {
+    margin-top: auto;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .light-mode,
+  .dark-mode {
+    padding: 0.8rem 1rem;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .light,
+  .dark {
+    font-size: 1.3rem;
+  }
+
+  .fa-sun,
+  .fa-moon {
+    font-size: 1.6rem;
   }
 }
 
@@ -237,10 +346,12 @@
     gap: 0.8rem;
   }
 
+  /* Theme selection - FIX for mobile */
   .theme-selection {
     margin-left: auto;
     margin-top: 0;
     flex-shrink: 0;
+    min-width: fit-content;
   }
 
   .light-mode,
@@ -300,31 +411,37 @@
   }
 
   table,
-  .attendance-table {
+  .attendance-table,
+  .candidate-table {
     font-size: 1.2rem;
   }
 
   thead th,
-  .attendance-table thead th {
+  .attendance-table thead th,
+  .candidate-table thead th {
     font-size: 1.2rem;
     padding: 0.8rem;
   }
 
   tbody td,
-  .attendance-table tbody td {
+  .attendance-table tbody td,
+  .candidate-table tbody td {
     font-size: 1.2rem;
     padding: 0.8rem;
   }
 
   tbody td:first-child img,
-  .attendance-table tbody td:first-child img {
+  .attendance-table tbody td:first-child img,
+  .candidate-table tbody td:nth-child(2) img {
     width: 3rem;
     height: 3rem;
   }
 
   #search-attendance-bar,
   #payroll-attendance-bar,
-  #search-job-bar {
+  #search-job-bar,
+  #search-employee-bar,
+  #search-candidate-bar {
     width: 100%;
     font-size: 1.4rem;
     padding: 1rem 1.6rem;
@@ -337,6 +454,182 @@
   .attendance-controls label,
   .attendance-controls select {
     font-size: 1.2rem;
+  }
+
+  /* Add New Employee Form - Mobile */
+  .buttonsDiv {
+    gap: 2.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.8rem;
+  }
+
+  .personalInfoBtn,
+  .proffesionalInfoBtn,
+  .documentsBtn,
+  .accessAccountBtn {
+    font-size: 1.3rem;
+  }
+
+  .eachFormSectionDiv {
+    padding: 1.6rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .form-group.triple-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-upload-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.6rem;
+  }
+
+  .camera-icon {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .button-group {
+    flex-direction: column-reverse;
+    gap: 1.2rem;
+  }
+
+  .back-button,
+  .next-button,
+  .submit-button {
+    width: 100%;
+    padding: 1.4rem 2.4rem;
+  }
+
+  /* Employee Actions */
+  .employee-search-wrapper {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  #search-employee-bar {
+    width: 100%;
+  }
+
+  .employee-action-buttons {
+    width: 100%;
+  }
+
+  .add-employee-btn,
+  .filter-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* Pagination Mobile */
+  .employee-pagination-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
+
+  .showing-container {
+    justify-content: center;
+  }
+
+  .pagination-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .pagination-info {
+    text-align: center;
+  }
+
+  .pagination-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .pagination-btn {
+    flex: 1;
+  }
+
+  /* Settings Page */
+  .settingsDiv {
+    padding: 1rem;
+  }
+
+  .customizationDiv,
+  .languageDiv {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  #themeSelection,
+  #languageSelection {
+    width: 100%;
+  }
+
+  /* Holidays */
+  .holidayBoxHead {
+    flex-direction: column !important;
+    gap: 1.2rem;
+    align-items: stretch !important;
+  }
+
+  .holidays-search-wrapper {
+    width: 100%;
+  }
+
+  #search-holiday-bar {
+    width: 100%;
+  }
+
+  .addNewMember {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  /* Notifications/Leaves */
+  .notificationHead {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.2rem;
+  }
+
+  .notificationHeadText {
+    font-size: 2rem !important;
+  }
+
+  .eachNotiv {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  .timeBox {
+    align-self: flex-end;
+  }
+
+  /* Modal */
+  .modal {
+    width: 90%;
+    max-width: 45rem;
+    padding: 2rem 1.2rem;
+  }
+
+  .modalHeading {
+    font-size: 1.8rem !important;
+  }
+
+  .listname {
+    font-size: 1.8rem !important;
   }
 }
 
@@ -396,6 +689,22 @@
 
   .fa-solid {
     font-size: 1.6rem;
+  }
+
+  /* Theme selection - even smaller */
+  .theme-selection {
+    min-width: auto;
+  }
+
+  .light-mode,
+  .dark-mode {
+    padding: 0.6rem 1rem;
+    gap: 0.6rem;
+  }
+
+  .light,
+  .dark {
+    font-size: 1.2rem;
   }
 
   .dashboard {
@@ -476,7 +785,8 @@
   }
 
   table,
-  .attendance-table {
+  .attendance-table,
+  .candidate-table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
@@ -573,6 +883,63 @@
   .job-desig {
     font-size: 1.1rem;
   }
+
+  /* Forms on small mobile */
+  .buttonsDiv {
+    gap: 1.6rem;
+  }
+
+  .personalInfoBtn,
+  .proffesionalInfoBtn,
+  .documentsBtn,
+  .accessAccountBtn {
+    font-size: 1.2rem;
+  }
+
+  .eachFormSectionDiv {
+    padding: 1.2rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 1.3rem;
+    padding: 1rem 1.2rem;
+  }
+
+  /* Employee Actions Small */
+  .add-employee-btn i,
+  .filter-btn i {
+    font-size: 1.4rem;
+  }
+
+  .add-employee-btn span,
+  .filter-btn span {
+    font-size: 1.3rem;
+  }
+
+  /* Pagination very small */
+  .pagination-btn {
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+  }
+
+  .page-number-btn {
+    min-width: 3rem;
+  }
+
+  /* Notification small */
+  .contentTopic {
+    font-size: 1.4rem !important;
+  }
+
+  .contents {
+    font-size: 1.2rem !important;
+  }
+
+  .time {
+    font-size: 1.2rem !important;
+  }
 }
 
 /* ===== VERY SMALL MOBILE (360px and below) ===== */
@@ -615,6 +982,52 @@
   .attendance-View > div {
     height: 200px !important;
   }
+
+  /* Theme selection very small */
+  .theme-selection {
+    font-size: 1rem;
+  }
+
+  .light-mode,
+  .dark-mode {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .light,
+  .dark {
+    font-size: 1.1rem;
+  }
+
+  .fa-sun,
+  .fa-moon {
+    font-size: 1.4rem;
+  }
+
+  /* Forms very small */
+  .buttonsDiv {
+    gap: 1.2rem;
+  }
+
+  .personalInfoBtn,
+  .proffesionalInfoBtn,
+  .documentsBtn,
+  .accessAccountBtn {
+    font-size: 1.1rem;
+  }
+
+  /* Modal very small */
+  .modal {
+    width: 95%;
+    padding: 1.6rem 1rem;
+  }
+
+  .modalHeading {
+    font-size: 1.6rem !important;
+  }
+
+  .listname {
+    font-size: 1.6rem !important;
+  }
 }
 
 /* ===== LANDSCAPE ORIENTATION OVERRIDE ===== */
@@ -634,5 +1047,37 @@
 
   .days {
     height: 18rem;
+  }
+
+  header {
+    padding: 0.8rem 1.6rem;
+  }
+
+  .hello {
+    font-size: 2rem;
+  }
+
+  .whatTimeOfTheDay {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== WIDE SCREENS (1440px and above) ===== */
+@media screen and (min-width: 1440px) {
+  html {
+    font-size: 62.5%; /* Keep at 10px for larger screens */
+  }
+
+  body {
+    grid-template-columns: 32rem 1fr;
+  }
+
+  nav {
+    width: 32rem;
+  }
+
+  .dashboard {
+    max-width: 160rem;
+    margin: 0 auto;
   }
 }
