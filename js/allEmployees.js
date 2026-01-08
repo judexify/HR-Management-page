@@ -5,6 +5,11 @@ let currentDisplayedItem = 10;
 const chunkArr = [];
 let currentPage = 0;
 let isPaginationInitialized = false;
+let formData = {
+  personalInfoData: {},
+  professionalInfoData: {},
+  accessAccountData: {},
+};
 
 export const renderAllEmployeePage = (data) => {
   dashBoard.innerHTML = "";
@@ -17,7 +22,7 @@ export const renderAllEmployeePage = (data) => {
   selectFn(data);
   paginationFn(data);
   searchBarFn(data, tableStructureHTML);
-  newEmployeeFn();
+  newEmployeeFn(data);
 };
 
 const createEmployeeSearchBar = () => {
@@ -395,89 +400,63 @@ const createPaginationFooter = (data) => {
 };
 
 //  Personal Information Form
-const renderPersonalInfoForm = () => {
+const renderPersonalInfoForm = (data) => {
   const formSection = document.querySelector(".eachFormSectionDiv");
   formSection.innerHTML = `
-    <div class="photo-upload-section">
-      <div class="camera-icon" id="cameraIcon">📷</div>
-      <span class="upload-text" id="uploadText">Upload Photo</span>
-      <input type="file" accept="image/*" class="photo-upload-input" id="photoUpload">
-    </div>
+    <div class="personal-info-form">
+      <div class="photo-upload-section">
+        <div class="camera-icon" id="cameraIcon">📷</div>
+        <span class="upload-text" id="uploadText">Upload Photo</span>
+        <input type="file" accept="image/*" class="photo-upload-input" id="photoUpload">
+      </div>
 
-    <div class="form-grid">
-      <div class="form-group">
-        <input type="text" placeholder="First Name" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <input type="text" placeholder="Last Name" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <input type="tel" placeholder="Mobile Number" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <input type="email" placeholder="Email Address" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <input type="text" placeholder="mm/dd/yyyy" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <select class="form-select">
-          <option disabled selected>Marital Status</option>
-          <option value="single">Single</option>
-          <option value="married">Married</option>
-          <option value="divorced">Divorced</option>
-          <option value="widowed">Widowed</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <select class="form-select">
-          <option disabled selected>Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <select class="form-select">
-          <option disabled selected>Nationality</option>
-          <option value="nigerian">Nigerian</option>
-          <option value="american">American</option>
-          <option value="british">British</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      
-      <div class="form-group full-width">
-        <textarea placeholder="Address" class="form-textarea"></textarea>
-      </div>
-      
-      <div class="form-group triple-grid">
-        <select class="form-select">
-          <option disabled selected>City</option>
-          <option value="lagos">Lagos</option>
-          <option value="abuja">Abuja</option>
-          <option value="port-harcourt">Port Harcourt</option>
-        </select>
+      <div class="form-grid">
+        <div class="form-group">
+          <input type="text" placeholder="Full Name" class="form-input" id="name">
+        </div>
         
-        <select class="form-select">
-          <option disabled selected>State</option>
-          <option value="lagos">Lagos</option>
-          <option value="fct">FCT</option>
-          <option value="rivers">Rivers</option>
-        </select>
+        <div class="form-group">
+          <input type="text" placeholder="Role/Title" class="form-input" id="role">
+        </div>
         
-        <input type="text" placeholder="ZIP Code" class="form-input">
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" class="form-input" id="email">
+        </div>
+        
+        <div class="form-group">
+          <input type="tel" placeholder="Phone Number" class="form-input" id="phone_number">
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="Location (City, State)" class="form-input" id="location">
+        </div>
+        
+        <div class="form-group">
+          <select class="form-select" id="employment_type">
+            <option disabled selected>Employment Type</option>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Contract">Contract</option>
+            <option value="Intern">Intern</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <select class="form-select" id="status">
+            <option disabled selected>Status</option>
+            <option value="Permanent">Permanent</option>
+            <option value="Contract">Contract</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="Department" class="form-input" id="department">
+        </div>
       </div>
-    </div>
 
-    <div class="next-button-container">
-      <button class="next-button">Next</button>
+      <div class="next-button-container">
+        <button class="next-button">Next</button>
+      </div>
     </div>
   `;
 
@@ -502,10 +481,25 @@ const renderPersonalInfoForm = () => {
     }
   });
 
-  // Next button on personal info
+  // Next button - Collect personal info
   document.querySelector(".next-button").addEventListener("click", () => {
+    formData.personalInfoData = {
+      name: document.getElementById("name").value,
+      role: document.getElementById("role").value,
+      email: document.getElementById("email").value,
+      phone_number: document.getElementById("phone_number").value,
+      location: document.getElementById("location").value,
+      employment_type: document.getElementById("employment_type").value,
+      status: document.getElementById("status").value,
+      department: document.getElementById("department").value,
+      imagePath: cameraIcon.style.backgroundImage
+        ? cameraIcon.style.backgroundImage.slice(5, -2)
+        : "./img/default.jpg",
+    };
+
+    console.log("Personal Info:", formData.personalInfoData);
     setActiveButton(document.querySelector(".proffesionalInfoBtn"));
-    renderProfessionalInfoForm();
+    renderProfessionalInfoForm(data);
   });
 };
 
@@ -517,127 +511,307 @@ const setActiveButton = (activeBtn) => {
 };
 
 // Render Professional Information Form
-const renderProfessionalInfoForm = () => {
+const renderProfessionalInfoForm = (data) => {
   const formSection = document.querySelector(".eachFormSectionDiv");
   formSection.innerHTML = `
-    <div class="form-grid">
-      <div class="form-group">
-        <input type="text" placeholder="Employee ID" class="form-input">
+    <div class="professional-info-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <input type="text" placeholder="Job Title/Designation" class="form-input" id="title">
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="Monthly Salary (e.g., $5,833)" class="form-input" id="salary_amount">
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="Annual Salary (e.g., $70,000)" class="form-input" id="salary_perYear">
+        </div>
+        
+        <div class="form-group">
+          <select class="form-select" id="salary_transaction">
+            <option disabled selected>Salary Transaction Status</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Processing">Processing</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="Salary Deduction (e.g., $200 or -)" class="form-input" id="salary_deduction">
+        </div>
+        
+        <div class="form-group">
+          <input type="time" placeholder="Check-in Time" class="form-input" id="attendance_check_in">
+        </div>
+        
+        <div class="form-group">
+          <select class="form-select" id="attendance_truth">
+            <option disabled selected>Attendance Status</option>
+            <option value="On Time">On Time</option>
+            <option value="Late">Late</option>
+            <option value="Absent">Absent</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <input type="number" placeholder="Employee ID" class="form-input" id="id">
+        </div>
       </div>
-      
-      <div class="form-group">
-        <input type="text" placeholder="Username" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <select class="form-select">
-          <option disabled selected>Select Employee Type</option>
-          <option value="full-time">Full Time</option>
-          <option value="part-time">Part Time</option>
-          <option value="contract">Contract</option>
-          <option value="intern">Intern</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <input type="email" placeholder="Email Address" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <select class="form-select">
-          <option disabled selected>Select Department</option>
-          <option value="hr">Human Resources</option>
-          <option value="it">IT</option>
-          <option value="finance">Finance</option>
-          <option value="marketing">Marketing</option>
-          <option value="sales">Sales</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <input type="text" placeholder="Enter Designation" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <select class="form-select">
-          <option disabled selected>Select Working Days</option>
-          <option value="5-days">5 Days (Mon-Fri)</option>
-          <option value="6-days">6 Days (Mon-Sat)</option>
-          <option value="shift">Shift Based</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <input type="text" placeholder="Select Joining Date" class="form-input" id="joiningDate">
-      </div>
-      
-      <div class="form-group full-width">
-        <textarea placeholder="Select Office Location" class="form-textarea"></textarea>
-      </div>
-    </div>
 
-    <div class="button-group">
-      <button class="back-button">Back</button>
-      <button class="next-button">Next</button>
+      <div class="button-group">
+        <button class="back-button">Back</button>
+        <button class="next-button">Next</button>
+      </div>
     </div>
   `;
 
-  // Back button on professional info
+  // Back button
   document.querySelector(".back-button").addEventListener("click", () => {
     setActiveButton(document.querySelector(".personalInfoBtn"));
-    renderPersonalInfoForm();
+    renderPersonalInfoForm(data);
   });
 
-  // Next button on professional info
+  // Next button - Collect professional info
   document.querySelector(".next-button").addEventListener("click", () => {
+    formData.professionalInfoData = {
+      id: parseInt(document.getElementById("id").value),
+      title: document.getElementById("title").value,
+      salary: {
+        amount: document.getElementById("salary_amount").value,
+        perYear: document.getElementById("salary_perYear").value,
+        transaction: document.getElementById("salary_transaction").value,
+        deduction: document.getElementById("salary_deduction").value,
+      },
+      attendance: {
+        truth: document.getElementById("attendance_truth").value,
+        check_in: document.getElementById("attendance_check_in").value,
+      },
+    };
+
+    console.log("Professional Info:", formData.professionalInfoData);
     setActiveButton(document.querySelector(".accessAccountBtn"));
-    renderAccessAccountForm();
+    renderAccessAccountForm(data);
   });
 };
 
 // Render Access Account Form
-const renderAccessAccountForm = () => {
+const renderAccessAccountForm = (data) => {
   const formSection = document.querySelector(".eachFormSectionDiv");
   formSection.innerHTML = `
-    <div class="form-grid">
-      <div class="form-group">
-        <input type="email" placeholder="Enter Email Address" class="form-input">
-      </div>
+    <div class="access-account-form">
+      <h3 style="color: #e5e7eb; margin-bottom: 2rem; font-size: 1.8rem;">Additional Information</h3>
       
-      <div class="form-group">
-        <input type="text" placeholder="Enter Slack ID" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <input type="text" placeholder="Enter Skype ID" class="form-input">
-      </div>
-      
-      <div class="form-group">
-        <input type="text" placeholder="Enter Github ID" class="form-input">
-      </div>
-    </div>
+      <div class="form-grid">
+        <div class="form-group full-width">
+          <label style="color: #9ca3af; margin-bottom: 0.8rem; display: block;">Notification Message</label>
+          <input type="text" placeholder="Enter notification message" class="form-input" id="notification_message">
+        </div>
+        
+        <div class="form-group full-width">
+          <label style="color: #9ca3af; margin-bottom: 0.8rem; display: block;">Notification Content</label>
+          <textarea placeholder="Enter detailed notification content" class="form-textarea" id="notification_content"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label style="color: #9ca3af; margin-bottom: 0.8rem; display: block;">Application Type</label>
+          <select class="form-select" id="application_type">
+            <option disabled selected>Select Application Type</option>
+            <option value="Leave">Leave</option>
+            <option value="Reimbursement">Reimbursement</option>
+            <option value="Transfer">Transfer</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label style="color: #9ca3af; margin-bottom: 0.8rem; display: block;">Application Status</label>
+          <select class="form-select" id="application_status">
+            <option disabled selected>Select Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label style="color: #9ca3af; margin-bottom: 0.8rem; display: block;">Application Start Date</label>
+          <input type="date" class="form-input" id="application_start_date">
+        </div>
+        
+        <div class="form-group">
+          <label style="color: #9ca3af; margin-bottom: 0.8rem; display: block;">Application End Date</label>
+          <input type="date" class="form-input" id="application_end_date">
+        </div>
 
-    <div class="button-group">
-      <button class="back-button">Back</button>
-      <button class="submit-button">Submit</button>
+        <div class="form-group full-width">
+          <label style="color: #9ca3af; margin-bottom: 0.8rem; display: block;">Select One Holiday Per Year</label>
+          <select class="form-select" id="holiday_name">
+            <option disabled selected>Choose Holiday</option>
+            <option value="New Year's Day">New Year's Day</option>
+            <option value="Martin Luther King Jr. Day">Martin Luther King Jr. Day</option>
+            <option value="Presidents' Day">Presidents' Day</option>
+            <option value="Memorial Day">Memorial Day</option>
+            <option value="Independence Day">Independence Day</option>
+            <option value="Labor Day">Labor Day</option>
+            <option value="Thanksgiving">Thanksgiving</option>
+            <option value="Christmas Day">Christmas Day</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label style="color: #9ca3af; margin-bottom: 0.8rem; display: block;">Holiday Date</label>
+          <input type="date" class="form-input" id="holiday_date">
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button class="back-button">Back</button>
+        <button class="submit-button">Submit</button>
+      </div>
     </div>
   `;
 
-  // Back button on access account
+  // Back button
   document.querySelector(".back-button").addEventListener("click", () => {
     setActiveButton(document.querySelector(".proffesionalInfoBtn"));
-    renderProfessionalInfoForm();
+    renderProfessionalInfoForm(data);
   });
 
-  // Submit button on access account
+  // Submit button
   document.querySelector(".submit-button").addEventListener("click", () => {
-    console.log("Form submitted!");
-    // Add your form submission logic here
+    const holidayName = document.getElementById("holiday_name").value;
+    const holidayDate = document.getElementById("holiday_date").value;
+
+    const formattedDate = holidayDate
+      ? new Date(holidayDate).toLocaleDateString("en-US", {
+          month: "long",
+          day: "2-digit",
+          year: "numeric",
+        })
+      : "";
+
+    formData.accessAccountData = {
+      notifications: [
+        {
+          message: document.getElementById("notification_message").value,
+          content: document.getElementById("notification_content").value,
+          timestamp: new Date().toLocaleString(),
+        },
+      ],
+      applications: [
+        {
+          type: document.getElementById("application_type").value,
+          start_date: document.getElementById("application_start_date").value,
+          end_date: document.getElementById("application_end_date").value,
+          status: document.getElementById("application_status").value,
+        },
+      ],
+      upcoming_holidays: [
+        {
+          holiday_name: holidayName,
+          date: formattedDate,
+          status: true,
+        },
+      ],
+    };
+
+    // reduce to json format type
+
+    const newEmployee = Object.keys(formData).reduce((acc, key) => {
+      return Object.assign(acc, formData[key]);
+    }, {});
+
+    data.push(newEmployee);
+
+    // Adding the new employee row to the table
+    const tbody = document.querySelector(".data-output");
+    if (tbody) {
+      const row = document.createElement("tr");
+
+      const idCell = document.createElement("td");
+      idCell.textContent = newEmployee.id || "N/A";
+      row.appendChild(idCell);
+
+      const nameCell = document.createElement("td");
+      const nameWrapper = document.createElement("div");
+      nameWrapper.classList.add("employee-name-cell");
+
+      const img = document.createElement("img");
+      img.src = newEmployee.imagePath || "";
+      img.alt = newEmployee.name;
+      img.classList.add("employee-avatar");
+
+      const nameText = document.createElement("p");
+      nameText.textContent = newEmployee.name || "N/A";
+
+      nameWrapper.appendChild(img);
+      nameWrapper.appendChild(nameText);
+      nameCell.appendChild(nameWrapper);
+      row.appendChild(nameCell);
+
+      const deptCell = document.createElement("td");
+      deptCell.textContent = newEmployee.department || "N/A";
+      row.appendChild(deptCell);
+
+      const titleCell = document.createElement("td");
+      titleCell.textContent = newEmployee.title || "N/A";
+      row.appendChild(titleCell);
+
+      const typeCell = document.createElement("td");
+      typeCell.textContent = newEmployee.employment_type || "N/A";
+      row.appendChild(typeCell);
+
+      const statusCell = document.createElement("td");
+      const statusSpan = document.createElement("span");
+      statusSpan.textContent = newEmployee.status || "N/A";
+      statusSpan.classList.add("employee-status");
+
+      if (newEmployee.status === "Permanent") {
+        statusSpan.classList.add("status-permanent");
+      }
+
+      if (newEmployee.status === "Contract") {
+        statusSpan.classList.add("status-contract");
+      }
+
+      statusCell.appendChild(statusSpan);
+      row.appendChild(statusCell);
+
+      const actionCell = document.createElement("td");
+      const actionWrapper = document.createElement("div");
+      actionWrapper.classList.add("employee-action-cell");
+
+      ["fa-eye", "fa-pen-to-square", "fa-trash-can"].forEach((icon) => {
+        const i = document.createElement("i");
+        i.className = `fa-regular ${icon}`;
+        i.classList.add("action-icon");
+        actionWrapper.appendChild(i);
+      });
+
+      actionCell.appendChild(actionWrapper);
+      row.appendChild(actionCell);
+
+      // Adding  the row to the table
+      tbody.appendChild(row);
+    }
+
+    // Clear form data for next employee
+    formData = {
+      personalInfoData: {},
+      professionalInfoData: {},
+      accessAccountData: {},
+    };
+
+    alert("Employee added successfully!");
+
+    // Go back to employee table
+    renderAllEmployeePage(data);
   });
 };
 
 //  renderFormSection
-const renderFormSection = () => {
+const renderFormSection = (data) => {
   dashBoard.innerHTML = "";
   dashBoard.innerHTML = `
     <div class="attendance-table-container">
@@ -652,14 +826,14 @@ const renderFormSection = () => {
     </div>
   `;
 
-  renderPersonalInfoForm();
+  renderPersonalInfoForm(data);
 };
 
-const newEmployeeFn = () => {
+const newEmployeeFn = (data) => {
   const addEmployeeBtn = document.querySelector(".add-employee-btn");
   if (addEmployeeBtn) {
     addEmployeeBtn.addEventListener("click", () => {
-      renderFormSection();
+      renderFormSection(data);
     });
   }
 };
